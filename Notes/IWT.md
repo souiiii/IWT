@@ -1,116 +1,161 @@
 # Internet and Web Technology
 
-## A guide to examination preparation
+The completed notes cover **Module I revision** and **JavaScript fundamentals, DOM and BOM**. Advanced JavaScript and Module III remain planned.
 
-These notes follow the [official syllabus](../Syllabus/IWT-7th-Semester-IT.pdf). Module I is concise revision of familiar material; the completed JavaScript, DOM and BOM chapters explain the ideas more fully before applying them to examination problems. Advanced JavaScript and Module III remain clearly marked outlines.
+For the end-semester examination, give particular attention to page construction, form validation and XML/DTD design. These recur in the supplied papers. The full current syllabus remains the boundary; recurrence is evidence for study priority, not a prediction of the next paper.
 
-Prioritise HTML/CSS construction, form validation and XML/DTD design: they recur across several supplied papers. Prepare AJAX, JSON, jQuery, React and Node.js as prescribed, even though their evidence comes from fewer, sometimes incomplete, papers. These priorities guide study time; they do not predict the next examination or exclude less frequently tested syllabus topics.
-
-| Reading route | Purpose |
+| Start here | What to study |
 | --- | --- |
-| [Module I](#module-i---the-web-html-and-css-8-hours) | Revise web fundamentals, HTTP, HTML and CSS. |
-| [Module II](#module-ii---javascript-dom-bom-and-advanced-concepts-10-hours) | Learn JavaScript, then the DOM, forms and the browser environment. |
-| [Module III](#module-iii---xml-ajax-jquery-json-reactjs-and-nodejs-12-hours) | Follow the remaining syllabus outline and question index. |
-| [Examination evidence](#appendix-a---examination-evidence) and [source audit](#appendix-c---past-paper-scope-audit) | Check recurrence, original question details and scope decisions. |
+| [Module I](#module-i---the-web-html-and-css-8-hours) | Web fundamentals, HTTP, HTML and CSS. |
+| [Module II](#module-ii---javascript-dom-bom-and-advanced-concepts-10-hours) | JavaScript, DOM, forms and the browser environment. |
+| [Module III outline](#module-iii---xml-ajax-jquery-json-reactjs-and-nodejs-12-hours) | Remaining prescribed topics and their question index. |
 
-Questions from the papers are identified by source, question number, page and verifiable marks; original practice is labelled separately. A **retained portion** answers only the syllabus-aligned part of an older question. Full filenames, source limitations and uncertain classifications are kept in the appendices so they do not interrupt the teaching.
+Actual examination questions appear after each broad topic. Marks are shown beside them; source notes retain the original filename, question number, page and any restriction on the retained portion. Original practice is labelled separately. Detailed evidence and scope decisions are kept in the appendices.
 
 ## Module I - The Web, HTML and CSS (8 hours)
 
-The Web brings together three familiar responsibilities: HTML describes a page, CSS presents it, and JavaScript controls its behaviour. This module revisits the network and document ideas on which those responsibilities depend. Read it as concise revision, paying particular attention to the distinctions that often become short examination questions.
+This module is concise revision. Start with how the Web works, then connect HTML structure to CSS presentation.
 
-### I.1 Internet, WWW and their histories
+### 1. Web Fundamentals and Architecture
 
-The **Internet** is a worldwide network of interconnected networks. It provides the communication infrastructure that allows computers to exchange data using the TCP/IP protocol suite. The **World Wide Web (WWW)** is one service built on that infrastructure: it makes linked pages and other resources available through URLs and web protocols. Email, for example, can use the Internet without being a web page.
+The **Internet** connects computer networks. The **World Wide Web** uses that network to make linked pages and resources available through URLs and web protocols.
 
-A website brings related pages together, and a browser retrieves and presents them. Within a page, HTML describes the structure, CSS controls the presentation, and JavaScript supplies behaviour. Keeping these responsibilities separate makes the later topics easier to place.
+The distinction is:
 
-The prescribed history can be remembered as a short sequence. ARPANET began in 1969, and the adoption of TCP/IP in 1983 helped establish the modern Internet. Tim Berners-Lee proposed the Web at CERN in 1989; the first website became publicly accessible in 1991. Hyperlinks then gave readers a straightforward way to move between networked documents.[^web-history][^internet-history]
+> The Internet provides the network. The Web is one service that uses it.
 
-> The Internet supplies the network; the Web uses that network to connect information and applications.
+Email can use the Internet without being a web page. A browser retrieves web resources and presents them to the user.
 
-### I.2 Websites, web applications, web projects and development issues
+#### How the Web Developed
 
-A website may simply present information or allow the visitor to perform a task. A **static website** serves stored pages without needing to generate their contents for each request. A **dynamic website** can generate or update content using program logic and data. A **web application**, such as a registration or ordering system, is organised around a task the user wants to complete. One site may combine all of these features.
+For the prescribed history, remember this short sequence:[^web-history][^internet-history]
 
-A web project begins by deciding who will use it and what they need. Those requirements guide the content, navigation and page design. Implementation follows the design; testing checks whether the result works; publishing makes it available; maintenance keeps it correct and useful.
+| Year | Development |
+| --- | --- |
+| 1969 | ARPANET began. |
+| 1983 | The adoption of TCP/IP helped establish the modern Internet. |
+| 1989 | Tim Berners-Lee proposed the Web at CERN. |
+| 1991 | The first website became publicly accessible. |
 
-For a tourism website, this means choosing the destinations and audience before writing pages, then checking that visitors can find the information and follow the links. Good development also considers usability, accessibility, browser compatibility, loading time, input handling, security and maintainability. Design succeeds when the site both communicates clearly and lets the user complete the intended task.
+Hyperlinks made it easy to move between networked documents.
 
-#### Examination practice
+#### Websites and Web Projects
 
-**Question 1.** What stages and strategies are required to develop a web project?
+A **website** brings related pages together. A **web application** lets the user complete a task, such as registering or placing an order.
 
-*[2019 paper][paper-2019], Q1.A(i), PDF p. 1, 2 marks*
+| Static website | Dynamic website |
+| --- | --- |
+| Serves stored pages without generating their contents for each request. | Can generate or update content using program logic and data. |
 
-**Answer.** Identify the audience and requirements; plan content and navigation; design the interface; implement pages and functionality; test correctness, usability and browser compatibility; deploy and maintain the site. Use consistent layouts and reusable styles, and review the result against the requirements.
+One site can combine information pages and application features.
 
-See also: [2024 paper, image 1][paper-2024-a], Q1(a), 5 marks, Odisha tourism: full answer in [I.20](#i20-display-positioning-and-website-layout). [2024 paper, image 2][paper-2024-b], Q3(a), 5 marks, catalogue/ordering/billing pages: full answer in [I.13](#i13-html-forms-and-integrated-page-construction).
+A web project follows this sequence:
 
-### I.3 Web architecture, web servers and browsers
+**Requirements → Content and navigation → Design → Implementation → Testing → Publishing → Maintenance**
 
-In the **client-server model**, one program requests a service and another provides it. On the Web, the browser acts as a client: it requests resources, interprets HTML and CSS, and runs browser JavaScript. The web server accepts HTTP requests and returns the requested resources or the results of processing them.
+For a tourism site, choose the audience and destinations first. Then organise the pages, implement the design and check the links, images and layout.
 
-A larger application often separates its work into three responsibilities. The presentation tier handles interaction, the application tier applies the business rules, and the data tier stores and retrieves information. This arrangement is called **three-tier web architecture**.
+Important development issues include usability, accessibility, browser compatibility, loading time, input handling, security and maintainability.
+
+#### Client-Server and Three-Tier Architecture
+
+In the **client-server model**, the client requests a service and the server provides it.
+
+The browser requests resources, interprets HTML/CSS and runs browser JavaScript. The web server accepts HTTP requests and returns resources or processing results.
+
+A **three-tier architecture** separates presentation, application logic and data storage:
 
 ```text
 Browser / presentation <--> Application / business logic <--> Database
           HTTP requests and responses       data operations
 ```
 
-Imagine submitting a registration form. The browser presents the fields, the application checks and processes the submission, and the database stores the accepted record. The tiers describe a logical separation of work; they do not necessarily require three physical computers.
+For registration, the browser shows the form, the application validates and processes the submission, and the database stores the accepted record.
 
-Client-server therefore describes the relationship between communicating roles, while three-tier architecture describes how an application divides its responsibilities.
+These are logical responsibilities. They need not be three physical computers.
 
-#### Examination practice
+#### Protocols, Standards and MIME
 
-**Question 1.** Explain client-server, three-tier web architecture, and their difference.
+A **protocol** defines communication rules. Standards allow browsers and servers from different suppliers to work together.
 
-*[2021 paper, 2019-23 batch][paper-2021-b], Q1(i), PDF p. 1, marks not visible*
+IETF publishes Internet protocol specifications. W3C develops many web standards, while WHATWG maintains the HTML Living Standard.
+
+| TCP/IP layer | Main responsibility | Examples |
+| --- | --- | --- |
+| Application | Rules for a particular service. | HTTP for web resources; DNS for domain-name resolution. |
+| Transport | Transfer between applications. | TCP gives reliable, ordered delivery; UDP does not give TCP's delivery guarantees. |
+| Internet | Addressing and routing between networks. | IP. |
+| Network access/link | Transfer over the local network. | Ethernet or Wi-Fi. |
+
+In the HTTP/1.1 model, HTTP defines the exchange, TCP transports it reliably, and IP handles addressing and routing. HTTPS protects communication using TLS.
+
+**MIME (Multipurpose Internet Mail Extensions)** identifies content types. A response's `Content-Type` can be `text/html`, `text/css`, `image/png` or `application/javascript`.
+
+A MIME type describes the content. A filename extension is part of its name.
+
+#### Cyber Laws
+
+**Cyber laws** govern activity involving computers, networks and electronic communication.
+
+They provide accountability for electronic transactions and misuse such as unauthorised access, identity theft and online fraud.
+
+In India, the Information Technology Act, 2000 provides a central framework for electronic records/signatures and specified computer-related offences.[^cyber-law]
+
+For this syllabus, know the purpose and examples. Detailed penalties and case law are outside the present treatment.
+
+#### Examination Practice
+
+**1. What stages and strategies are required to develop a web project?** (2 marks)[^pyq-01]
+
+**Answer.** Identify the audience and requirements; plan content and navigation; design the interface; implement pages and functionality; test correctness, usability and browser compatibility; deploy and maintain the site. Use consistent layouts and reusable styles, and review the result against the requirements.
+
+**2. Explain client-server, three-tier web architecture, and their difference.** (marks not shown)[^pyq-02]
 
 **Answer.** In client-server computing, a client sends a request and a server processes it and returns a response. Three-tier web architecture divides the system into a presentation tier for interaction, an application tier for processing/business rules, and a data tier for persistent storage. For example, a browser submits a registration to an application, which stores it in a database and returns confirmation. Three-tier architecture organises client-server communication by separating presentation, application processing and storage, as shown in the diagram above.
 
-### I.4 Web protocols, Internet standards, TCP/IP and MIME
+---
 
-A **protocol** is a set of rules that communicating systems agree to follow. Standards make it possible for a browser and a server produced by different organisations to understand one another. IETF publishes Internet protocol specifications; W3C develops many web standards, while WHATWG maintains the HTML Living Standard.
+### 2. HTTP: URLs, Messages and Connections
 
-The TCP/IP suite divides communication into layers. Each layer has a particular responsibility and relies on the layer beneath it.
+A browser needs to know **where a resource is** and **how to request it**.
 
-| TCP/IP layer | Responsibility | Relevant examples |
+A URL supplies the address. HTTP defines the request and response.
+
+#### URL Anatomy
+
+Consider:
+
+`https://example.org:8443/books/list.html?topic=web#css`
+
+| Part | Value | Meaning |
 | --- | --- | --- |
-| Application | Defines communication for a particular service. | HTTP retrieves web resources; DNS resolves domain names. |
-| Transport | Transfers data between applications. | TCP provides reliable, ordered delivery; UDP sends datagrams without TCP's delivery guarantees. |
-| Internet | Addresses hosts and routes packets between networks. | IP. |
-| Network access/link | Carries data across the local network. | Ethernet or Wi-Fi. |
+| Scheme | `https` | How the resource is accessed. |
+| Host | `example.org` | The server. |
+| Port | `8443` | An explicit service port. |
+| Path | `/books/list.html` | The resource on that server. |
+| Query | `topic=web` | Query data. |
+| Fragment | `css` | A location within the resource. |
 
-In the HTTP/1.1 model used here, HTTP defines the requests and responses, TCP transports them reliably, and IP handles addressing and routing. HTTPS adds protection through TLS. These are different responsibilities within the same communication process.
+The fragment is handled by the browser and is not sent in the HTTP request.
 
-The response must also tell the browser what kind of content it contains. **MIME (Multipurpose Internet Mail Extensions)** provides content-type conventions; on the Web, the `Content-Type` header identifies representations such as `text/html`, `text/css`, `image/png` or `application/javascript`. A MIME type describes the content, whereas a filename extension is part of its name.
+A relative URL such as `story.html` is resolved against the document's base URL.
 
-### I.5 URL anatomy and HTTP messages
+#### HTTP Requests and Responses
 
-A browser needs both an address for a resource and rules for requesting it. The **URL (Uniform Resource Locator)** supplies the address; **HTTP (Hypertext Transfer Protocol)** defines the exchange between the browser and server.
+**HTTP (Hypertext Transfer Protocol)** defines how a client requests a resource and how the server reports the result.
 
-#### Reading a URL
+It is **stateless**: separate requests do not automatically become one remembered user session.[^http-overview]
 
-Consider `https://example.org:8443/books/list.html?topic=web#css`:
+A page may need several exchanges: first the HTML, then its stylesheets, images and scripts.
 
-| Part | Value | Purpose |
-| --- | --- | --- |
-| Scheme | `https` | Identifies how the resource is accessed. |
-| Host | `example.org` | Identifies the server. |
-| Port | `8443` | Specifies an explicit service port. |
-| Path | `/books/list.html` | Identifies the resource on that server. |
-| Query | `topic=web` | Carries query data. |
-| Fragment | `css` | Identifies a location within the resource. |
+An HTTP/1.1 message contains:
 
-The fragment is handled by the browser and is not sent in the HTTP request. A relative URL such as `story.html` is resolved against the document's base URL.
+1. A **start line**.
+2. **Headers** describing the request or response.
+3. A **blank line** ending the headers.
+4. An optional **body** carrying content.
 
-#### From a request to a response
-
-HTTP defines what the client requests and how the server reports the result. It is **stateless**: separate requests do not automatically become one remembered user session. Loading a page may involve several exchanges, beginning with HTML and continuing with its referenced stylesheets, images and scripts.[^http-overview]
-
-An HTTP/1.1 message contains a start line, headers, a blank line, and an optional body. The request line identifies the method, request target and version:
+The request line gives the method, request target and version:
 
 ```http
 GET /books/list.html?topic=web HTTP/1.1
@@ -119,7 +164,7 @@ Accept: text/html
 
 ```
 
-The response begins with a status line containing the version, status code and reason phrase. Headers describe the response, while the body carries its content:
+The response begins with a version, status code and reason phrase:
 
 ```http
 HTTP/1.1 200 OK
@@ -129,49 +174,59 @@ Content-Length: 12
 <h1>IWT</h1>
 ```
 
-The body shown is 12 ASCII bytes without a trailing newline. `200` indicates success; `301` indicates permanent redirection, `404` that a resource was not found, and `500` a server error. The blank line separates metadata from content.[^http-messages]
+The illustrated body is 12 ASCII bytes without a trailing newline. `200` means success, `301` permanent redirection, `404` not found and `500` a server error.[^http-messages]
 
-The request method identifies the intended operation. **GET** requests a representation of a resource; an HTML GET form places its data in the URL query. **POST** submits data in the request body for processing, commonly to create or submit information. GET is intended for retrieval without changing server state. POST does not itself encrypt the data; HTTPS supplies transport protection.
+> HTTP defines the exchange. HTML is one type of content that it can carry.
 
-> HTTP governs the exchange. HTML is one kind of content that exchange can carry.
+#### GET and POST
 
-#### Examination practice
+| GET | POST |
+| --- | --- |
+| Requests a representation of a resource. | Submits data for processing. |
+| An HTML GET form places data in the URL query. | Places submitted data in the request body. |
+| Intended for retrieval without changing server state. | Commonly used to create or submit information. |
 
-**Question 1.** Differentiate GET and POST. JSP tags are excluded.
+POST does not itself encrypt data. HTTPS supplies transport protection.
 
-*[2019 paper][paper-2019], Q3.A(i), PDF p. 1, retained GET/POST part: 1 mark; original 2+1 marks · Retained portion*
+#### Connections, Caching and Proxies
+
+A **non-persistent connection** carries one request-response exchange and then closes.
+
+A **persistent connection** is reused for further exchanges, avoiding repeated setup. HTTP/1.1 uses persistence by default unless the connection is closed.
+
+A **web cache** stores reusable responses. It can serve a fresh copy without downloading it again, or ask the server whether an older copy has changed.
+
+Caching reduces delay, network traffic and server work. A stored copy is not permanently valid.
+
+A **proxy** forwards exchanges between client and server. It may cache responses or apply access controls, but need not cache everything.
+
+A browser cache is local to the browser; a proxy cache is at an intermediary.
+
+> Persistence reuses a connection. Caching reuses a response. A proxy forwards the exchange.
+
+#### Examination Practice
+
+**1. Differentiate GET and POST. JSP tags are excluded.** (1 mark)[^pyq-03]
 
 **Answer.** GET requests a representation of a resource; HTML GET forms put their data in the URL query. POST submits data in the request body for processing.
 
-### I.6 Connections, web caching and proxies
-
-Opening a connection takes work. A **non-persistent HTTP connection** is used for one request-response exchange and then closed, so another exchange needs another connection. A **persistent connection** can be reused, avoiding repeated setup. HTTP/1.1 uses persistence by default unless the connection is closed. This describes connection reuse, rather than whether the user is logged in.
-
-Caching saves a different kind of work. A **web cache** keeps reusable responses so that a fresh copy can be served without downloading it again. When necessary, the cache can ask the server whether its copy has changed. Reusing a valid response reduces delay, network traffic and server processing; storing it does not make it permanently valid.
-
-A **proxy** forwards requests and responses between a client and a server. It may also cache responses or enforce access controls. A browser cache is local to the browser, whereas a proxy cache sits at an intermediary. A proxy does not have to cache every response.
-
-> Persistence reuses a connection; caching reuses a response; a proxy provides an intermediary through which an exchange may pass.
-
-#### Additional practice
+#### Additional Practice
 
 **Original question · Suggested 4 marks.** Explain persistent connections and proxy caching, and state one benefit of each.
 
 **Answer.** A persistent connection carries multiple HTTP exchanges over one TCP connection, reducing repeated setup overhead. A proxy cache stores reusable server responses between clients and origin servers. It can serve a fresh copy, reducing network traffic and response time; otherwise it forwards or revalidates the request. Persistence and caching can work together, but solve different problems.
 
-### I.7 Cyber laws
+---
 
-**Cyber laws** govern conduct involving computers, networks and electronic communication. They provide legal accountability in a setting where people exchange personal information, enter electronic transactions and may encounter unauthorised access, identity theft or fraud.
+### 3. HTML: Structure, Content and Forms
 
-In India, the Information Technology Act, 2000 provides a central framework for electronic records and signatures, as well as specified computer-related offences. Recognition of electronic records and offences involving identity theft or online impersonation are useful examples of its relevance to web activity.[^cyber-law]
+**HTML (HyperText Markup Language)** describes the structure and meaning of a page.
 
-For revision, connect the definition to its purpose: online activity needs recognised rights, responsibilities and consequences. The syllabus does not specify a list of provisions, so a clear explanation and relevant examples are sufficient here; detailed penalties and case law are not part of this treatment.
+An element usually has an opening tag, content and a closing tag. Attributes add information about it. Void elements such as `img`, `meta` and `br` have no closing tag.
 
-### I.8 HTML foundations and document metadata
+#### Document Structure
 
-**HTML (HyperText Markup Language)** describes the structure and meaning of a page. An element usually consists of an opening tag, its content and a closing tag. Attributes supply additional information about the element. Void elements, including `img`, `meta` and `br`, have no closing tag.
-
-An HTML document separates information about the page from the page content itself. The `head` holds metadata and references to resources; the `body` holds the content presented to the reader. The following document shows both roles:
+The `head` contains information about the page. The `body` contains the page content presented to the reader.
 
 ```html
 <!doctype html>
@@ -193,25 +248,17 @@ An HTML document separates information about the page from the page content itse
 </html>
 ```
 
-The `doctype` selects standards mode. Within the head, `title` names the browser tab, `meta` supplies metadata, `link` references an external resource, `style` contains CSS, and `script` includes JavaScript. The optional `base` element changes how relative URLs are resolved: here, `style.css` resolves under the specified course URL.
+The `doctype` selects standards mode. `title` names the browser tab, while `meta` supplies metadata.
 
-A useful distinction is that `head` describes the document, while a visible heading such as `h1` belongs to its content. HTML establishes that structure; CSS determines its appearance.
+`link` references an external resource, `style` contains CSS, and `script` includes JavaScript. The optional `base` changes relative-URL resolution: here, `style.css` resolves under the specified course URL.
 
-#### Examination practice
+A visible heading such as `h1` belongs to the body; it has a different role from `head`.
 
-**Question 1.** Explain script-tag attributes. Detailed Java comparison is excluded; JavaScript characteristics are covered in II.1.
+#### Text and Lists
 
-*[2019 paper][paper-2019], Q6.A(i), PDF p. 2, script-attributes part: 1 mark; original 1+1 marks · Retained portion*
+Use `h1`-`h6` for heading levels, `p` for a paragraph and `br` for a line break within a passage. Use CSS for layout and spacing rather than repeated line breaks.
 
-**Answer.** `src` specifies an external script; `defer` downloads an external classic script without blocking parsing and executes it after parsing; `async` executes it when ready without preserving script order. `type` identifies the script type, for example `module`; ordinary JavaScript can omit it. Historical `language` is obsolete.
-
-See also: the 2021 travel prompt requires an external stylesheet; its complete answer is in I.10.
-
-### I.9 HTML text, headings and lists
-
-Text becomes easier to follow when its structure is explicit. Use `h1`-`h6` for levels of headings, `p` for paragraphs and `br` for a line break within a passage. A heading identifies a section; it is more than a way to make text larger. Spacing and page layout belong in CSS rather than in repeated line breaks.
-
-Formatting elements can also communicate meaning. `strong` marks importance and `em` emphasis; `b` and `i` can mark text without those meanings. `sub`, `sup`, `mark`, `small`, `del` and `ins` express common formatting and annotation needs.
+`strong` marks importance and `em` emphasis. `b` and `i` can mark text without those meanings. `sub`, `sup`, `mark`, `small`, `del` and `ins` provide common text formatting and annotations.
 
 ```html
 <h1>Web revision</h1>
@@ -222,17 +269,17 @@ Formatting elements can also communicate meaning. `strong` marks importance and 
 <dl><dt>HTTP</dt><dd>A web request-response protocol.</dd></dl>
 ```
 
-The three list forms organise different relationships. An unordered list (`ul`) groups items whose order is not essential; an ordered list (`ol`) presents a sequence; a description list (`dl`) pairs terms (`dt`) with descriptions (`dd`). Choose the structure that expresses the relationship between the items.
+Choose the list according to the relationship between its items:
 
-#### Examination practice
+| List | Use |
+| --- | --- |
+| `ul` | Items whose order is not essential. |
+| `ol` | A sequence of items. |
+| `dl` with `dt` and `dd` | Terms paired with descriptions. |
 
-**Application in a shared question.** Styled headings and travel-story text are part of the integrated task. The complete model in I.10 includes both; no separate marks for text formatting are printed.
+#### Links, Images and Video
 
-*[2021 paper, 2018-22 batch][paper-2021-a], unnumbered travel prompt, PDF p. 1, 10 points overall*
-
-### I.10 Anchors, images and video
-
-Links and media give a page something to navigate and something to show. An anchor's `href` identifies its destination, whether another resource or a fragment within the current document. An image's `src` identifies the image, while `alt` supplies a text alternative and `width`/`height` specify dimensions. A `video` element can provide playback controls and alternative sources.
+An anchor's `href` identifies its destination. An image's `src` identifies the image, and `alt` provides a text alternative.
 
 ```html
 <a href="story.html">Read the travel story</a>
@@ -245,27 +292,362 @@ Links and media give a page something to navigate and something to show. An anch
 <h2 id="contact">Contact details</h2>
 ```
 
-The first link opens another page. The second uses `#contact` to move to the element whose `id` is `contact`. Placing an image inside an anchor makes the image itself clickable, which is the key idea in the travel-page question below.
+The first link opens another page. The `#contact` link moves to the element with `id="contact"`.
 
-An image's `alt` text serves as an alternative to the image; it is not a tooltip. The `title` attribute may supply advisory text. Keeping these roles distinct makes both definitions and examples more precise.
+Place an image inside an anchor to make it clickable. `width` and `height` specify dimensions. `alt` is an alternative to the image, not a tooltip; `title` may supply advisory text.
 
-#### Examination practice
+A `video` element can provide playback controls and alternative sources, as shown above.
 
-**Question 1.** Give image syntax and explain its attributes.
+#### Tables
 
-*[2024 paper, image 1][paper-2024-a], Q2(a), 2 marks*
+A table presents data whose meaning depends on rows and columns.
+
+`table` encloses it, `tr` creates a row, `th` marks a header cell and `td` a data cell. `caption` supplies a title.
+
+`colspan` spans columns and `rowspan` spans rows. For example, `<tr><td colspan="2">Total</td></tr>` places one cell across two columns.
+
+These attributes describe structure. CSS controls borders, padding, spacing and alignment.
+
+#### Frames
+
+An **iframe** embeds a separate document inside a page:
+
+```html
+<iframe src="story.html" title="Travel story"
+        style="width: 100%; height: 180px; border: 1px solid black;"></iframe>
+```
+
+A DIV groups content in the same document; an iframe displays another document.
+
+The syllabus also names historical frames. Recognise `<frameset cols="25%,75%"><frame src="menu.html"><frame src="main.html"></frameset>`: the frameset replaced the normal body in that older document form.
+
+`frameset` and `frame` are obsolete in HTML5. Use an iframe for the retained layout question.[^frames]
+
+#### Forms
+
+A **form** collects related input. Its `action` identifies the receiving resource and its `method` determines the submission method.
+
+Controls normally need a `name` to contribute submitted values. An `id` instead identifies an element in the document.
+
+```html
+<form action="/register" method="post">
+  <label>Name <input name="student" required></label>
+  <label>Course <select name="course"><option>IWT</option></select></label>
+  <label><input type="checkbox" name="updates" value="yes">Send updates</label>
+  <label>Message <textarea name="message"></textarea></label>
+  <button type="submit">Register</button>
+</form>
+```
+
+A label explains a control. Radio buttons with the same name represent alternatives; a checkbox represents an independent choice. Use `select` for options and `textarea` for multiline text.
+
+A submit button initiates submission. `type="button"` performs only its programmed action.
+
+HTML constraints and JavaScript can check input, but the receiving server must validate it again. Section 11 develops the complete validation process.
+
+The larger travel, shopping, tourism and form-construction answers are grouped in Section 5.
+
+#### Examination Practice
+
+**1. Explain script-tag attributes. Detailed Java comparison is excluded; JavaScript characteristics are covered in [JavaScript Basics](#6-javascript-basics).** (1 mark)[^pyq-04]
+
+**Answer.** `src` specifies an external script; `defer` downloads an external classic script without blocking parsing and executes it after parsing; `async` executes it when ready without preserving script order. `type` identifies the script type, for example `module`; ordinary JavaScript can omit it. Historical `language` is obsolete.
+
+**2. Give image syntax and explain its attributes.** (2 marks)[^pyq-06]
 
 **Answer.** `<img src="puri.jpg" alt="Beach at Puri" width="300" height="180">`. `src` is the image URL, `alt` is alternative text, and `width`/`height` set dimensions. It is a void element and needs no end tag.
 
-**Question 2.** Explain anchor navigation and scrolling with an example.
-
-*[2024 paper, image 2][paper-2024-b], Q2(e), 2 marks*
+**3. Explain anchor navigation and scrolling with an example.** (2 marks)[^pyq-07]
 
 **Answer.** `<a href="story.html">Story</a>` opens another document. `<a href="#contact">Contact</a>` navigates to an element such as `<h2 id="contact">Contact</h2>` within the document. The fragment causes the browser to move to that target.
 
-**Question 3.** Display favourite holiday destinations as images linking to story pages; use external CSS for headings, images, links, margins and backgrounds.
+**4. Write HTML for the pictured Roll No./Student Name/Subject Name table.** (3 marks)[^pyq-09]
 
-*[2021 paper, 2018-22 batch][paper-2021-a], unnumbered travel prompt, PDF p. 1, 10 points*
+**Answer.**
+
+```html
+<style>
+  table { border-collapse: collapse; }
+  th, td { border: 1px solid black; padding: 4px; }
+</style>
+<table>
+  <tr><th>Roll No.</th><th>Student Name</th><th>Subject Name</th></tr>
+  <tr><td>1</td><td>Ram</td><td>Physics</td></tr>
+  <tr><td>2</td><td>Shyam</td><td>Math</td></tr>
+  <tr><td>3</td><td>Murli</td><td>Chemistry</td></tr>
+</table>
+```
+
+**5. Explain tags/attributes for HTML/CSS tables with examples.** (2 marks)[^pyq-10]
+
+**Answer.** `table`, `tr`, `th` and `td` define the table, rows, header and data cells. `colspan="2"` spans two columns and `rowspan="2"` two rows. `table { border-collapse: collapse; }` and `th, td { border: 1px solid; padding: 4px; }` style the table. The table in the preceding answer demonstrates the row and cell structure.
+
+---
+
+### 4. CSS: Styling and Page Layout
+
+**CSS (Cascading Style Sheets)** controls presentation: colours, text, spacing and layout.
+
+A rule such as `p { color: navy; }` has a selector (`p`) and a declaration (`color: navy`). The selector chooses elements; the declaration supplies a property and value.
+
+#### Adding CSS and Selecting Elements
+
+| Method | Example | Applies to |
+| --- | --- | --- |
+| Inline | `<p style="color: navy;">Hello</p>` | One element. |
+| Internal | `<style>p { color: navy; }</style>` in `head` | The current document. |
+| External | `<link rel="stylesheet" href="site.css">` | Documents linking to that stylesheet. |
+
+An external stylesheet lets several pages share one design.
+
+Selectors can describe an element, a group or a relationship:
+
+| Selector | Meaning |
+| --- | --- |
+| `p`, `.note`, `#result`, `*` | Element, class, ID and universal selector. |
+| `h1, h2` | Both sets of headings. |
+| `article p`, `article > p` | Descendant paragraph; direct-child paragraph. |
+| `h2 + p`, `h2 ~ p` | Next sibling paragraph; later sibling paragraphs with the same parent. |
+| `input[type="email"]`, `[required]` | Matching attribute value; presence of an attribute. |
+| `[href^="https"]`, `[href$=".pdf"]`, `[class~="note"]` | Starts with, ends with, or contains a space-separated word. |
+
+A class can be shared; an ID should identify one element. Commas group selectors, while combinators express relationships.
+
+`p.note` means a paragraph with that class. `.note p` means a paragraph inside an element with that class.
+
+**Specificity** resolves competing selectors when their declarations are otherwise comparable. Compare IDs first, then classes/attributes/pseudo-classes, then elements/pseudo-elements. If priorities tie, the later rule wins.[^specificity]
+
+```html
+<style>
+  p { color: blue; }
+  .note { color: green; }
+  #result { color: red; }
+</style>
+<p id="result" class="note">This text is red.</p>
+```
+
+The paragraph is red because `#result` has greater specificity.
+
+Normal inline styling outranks normal stylesheet declarations. An applicable `!important` declaration can override a normal inline declaration. Therefore, placement alone does not decide every conflict.
+
+#### Pseudo-Classes and Pseudo-Elements
+
+A **pseudo-class** selects an element in a state or relationship, such as `a:hover`, `input:focus`, `a:visited` or `li:first-child`.
+
+A **pseudo-element** selects part of an element or generates content, such as `::first-line`, `::first-letter`, `::selection`, `::before` or `::after`.
+
+```css
+a:hover { color: red; }
+p::first-letter { font-size: 2em; }
+p::first-line { font-weight: bold; }
+.notice::before { content: "Note: "; }
+.notice::after { content: " *"; }
+::selection { background: gold; }
+```
+
+> A pseudo-class describes an element's state or relationship. A pseudo-element addresses part of it or generated content.
+
+`::before` and `::after` normally need `content` to become visible. The double colon distinguishes pseudo-elements from pseudo-classes.
+
+#### Colours, Backgrounds and Text Styling
+
+`color` sets text colour. Colours may be named (`navy`), hexadecimal (`#003366`), RGB (`rgb(0,51,102)`) or include transparency (`rgba(0,51,102,0.5)`).
+
+Background properties paint behind the content:
+
+```css
+body {
+  color: #123;
+  background-color: #eef6ff;
+  background-image: url("paper.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* Alternative shorthand for these background settings: */
+.banner { background: #eef6ff url("paper.png") center top / cover no-repeat fixed; }
+```
+
+`repeat` tiles an image; `no-repeat` prevents tiling. `cover` fills the area and may crop the image. The usual `scroll` attachment moves with the element; `fixed` uses the viewport.
+
+The shorthand can reset omitted background properties. An HTML image contributes content; a CSS background supplies presentation behind it.
+
+Font, link, list and table rules make familiar structures readable:
+
+```css
+body { font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; }
+h1 { font-weight: bold; font-style: normal; }
+a:link { color: navy; }
+a:visited { color: purple; }
+a:hover, a:focus { text-decoration: underline; }
+a:active { color: red; }
+.icon { color: navy; font-size: 1.2em; }
+ul { list-style-type: square; list-style-position: inside; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #777; padding: 6px; text-align: left; }
+```
+
+Use a generic fallback font. Link states are pseudo-classes.
+
+An icon can be an image or a styled text symbol. For example, `<span class="icon" aria-hidden="true">&#9733;</span> Favourite` displays a star beside its label; no icon library is required.
+
+`list-style-image: url("bullet.png")` supplies image bullets, while `list-style` combines list settings. Cell padding is inside a cell; `border-spacing` separates cells in a separated-border table. `border-collapse: collapse` merges adjacent borders.
+
+#### The Box Model and Units
+
+The **box model** places padding around content, a border around the padding, and margin outside the border:
+
+```text
+margin -> border -> padding -> content -> padding -> border -> margin
+```
+
+```css
+.card {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid navy;
+  margin: 15px;
+}
+```
+
+With default `content-box` sizing, the border-box width is `200 + 20 + 4 = 224px`. Including horizontal margins gives `254px`.
+
+$$
+W_{\text{border box}} = W_{\text{content}} + P_{\text{left}} + P_{\text{right}} + B_{\text{left}} + B_{\text{right}}.
+$$
+
+With `box-sizing: border-box`, the declared width includes content, padding and border. **Margin stays outside the declared width in both models.** A visible border also needs a style such as `solid`.
+
+| Unit | Relative to |
+| --- | --- |
+| `px` | A CSS pixel. |
+| `%` | The relevant reference dimension. |
+| `em` | Font size; the parent's font size when setting `font-size`. |
+| `rem` | Root font size. |
+| `vw`, `vh` | Percentages of viewport width and height. |
+
+Four spacing values mean top/right/bottom/left. Two mean vertical/horizontal.
+
+#### Display, Positioning and Alignment
+
+`block` normally starts a new line, `inline` flows with text, and `inline-block` flows inline while accepting dimensions.
+
+`display: none` removes the layout box. `visibility: hidden` preserves its space. For excess content, `overflow: auto` provides scrolling, `hidden` clips and `visible` allows overflow.
+
+| Position setting | Effect |
+| --- | --- |
+| `static` | Normal flow. |
+| `relative` | Offset while retaining the original space. |
+| `absolute` | Removed from flow; usually placed against the nearest positioned ancestor's containing block. |
+| `fixed` | Normally placed against the viewport. |
+| `sticky` | Normal behaviour until a scrolling threshold is reached. |
+
+`float: left/right` lets inline content wrap beside an element. `clear` prevents an element from sitting beside earlier floats.
+
+Use `text-align: center/right` for inline content and `margin: auto` to centre a block with a suitable width. `vertical-align: middle` applies to inline-level or table-cell content, not arbitrary block boxes.
+
+Multiple columns use `column-count`, `column-gap` and `column-rule`:
+
+```css
+.reading { column-count: 2; column-gap: 2rem; column-rule: 1px solid #aaa; }
+.picture { float: left; margin-right: 1rem; }
+.next { clear: both; }
+```
+
+#### Navigation, Galleries and Styled Forms
+
+A navigation bar presents links; a dropdown reveals subordinate links; a gallery repeats image/link items. Form styles make labels and fields easier to scan.
+
+```html
+<style>
+  nav > ul { list-style: none; padding: 0; }
+  nav li { display: inline-block; position: relative; }
+  nav a { display: block; padding: 8px; }
+  .submenu { display: none; position: absolute; background: white;
+             list-style: none; padding: 0; }
+  li:hover > .submenu, li:focus-within > .submenu { display: block; }
+  .gallery a { display: inline-block; margin: 8px; }
+  .gallery img { width: 150px; border: 1px solid; }
+  label { display: block; margin: 8px 0; }
+  input { padding: 6px; border: 1px solid #777; }
+</style>
+<nav><ul><li><a href="#sites">Destinations</a><ul class="submenu">
+  <li><a href="puri.html">Puri</a></li>
+</ul></li></ul></nav>
+<div class="gallery" id="sites">
+  <a href="puri.html"><img src="puri.jpg" alt="Puri"></a>
+</div>
+```
+
+The positioned parent provides a reference for the absolute submenu. The submenu is hidden until hover or focus reveals it. Gallery images use inline-block links.
+
+#### Text Effects, Animations, Tooltips and Counters
+
+**Opacity** affects the whole element, including its contents: 0 is transparent and 1 opaque. An alpha background colour affects only the background.
+
+Text effects include shadows, wrapping and ellipsis. An animation changes properties through keyframes; a tooltip reveals a short explanation; a counter numbers repeated elements.
+
+```html
+<style>
+  .faded { opacity: 0.5; }
+  .heading { text-shadow: 1px 1px 2px #aaa; }
+  .short { width: 12em; white-space: nowrap; overflow: hidden;
+           text-overflow: ellipsis; }
+  .wrap { overflow-wrap: anywhere; }
+  @keyframes highlight { from { background: white; } to { background: gold; } }
+  .notice { animation: highlight 2s infinite alternate; }
+  .tip { position: relative; }
+  .tip span { display: none; position: absolute; top: 100%; left: 0;
+              padding: 4px; background: black; color: white; }
+  .tip:hover span, .tip:focus span { display: block; }
+  .steps { counter-reset: step; }
+  .steps p::before { counter-increment: step; content: counter(step) ". "; }
+</style>
+<p class="faded">Half opacity</p>
+<h2 class="heading">Revision</h2>
+<p class="short">A long sentence that does not fit in this narrow area.</p>
+<p class="wrap">averylongwordthatmustwrapinsideitscontainer</p>
+<p class="notice">Exam notice</p>
+<button class="tip" type="button">Help<span>Enter your student name.</span></button>
+<div class="steps"><p>Read</p><p>Practise</p></div>
+```
+
+Ellipsis needs a constrained width and clipping. Animation needs named keyframes and a duration. Counters must be reset, incremented and displayed through generated content.
+
+The tooltip appears on interaction. These are CSS mechanisms; the excluded historical `marquee` instruction is not needed.
+
+#### Examination Practice
+
+**1. Explain ways of using CSS in HTML, with examples.** (2 marks)[^pyq-15]
+
+**Answer.** Inline CSS uses the `style` attribute, as in `<p style="color: navy;">Hello</p>`. Internal CSS uses a rule such as `<style>p { color: navy; }</style>` in `head`. External CSS uses `<link rel="stylesheet" href="site.css">`, with the rule in that stylesheet, allowing several pages to share it.
+
+**2. Name the selector used to specify a group of elements and justify it.** (3 marks)[^pyq-16]
+
+**Answer.** A **class selector** applies a shared style to a group of elements assigned the same class: `.notice { color: red; }` matches both `<p class="notice">Exam</p>` and `<h2 class="notice">Revision</h2>`. Unlike an ID, a class is reusable across elements. If “group” is used to mean a **grouping selector**, explain the comma form too: `h1, h2, p { color: red; }` applies one rule to several selector groups. The printed question does not distinguish these two meanings; state the interpretation rather than silently guessing.
+
+**3. Define a pseudo-element and explain CSS pseudo-elements.** (2 marks)[^pyq-17]
+
+**Answer.** A pseudo-element styles a selected part of an element. `::first-line` styles its first formatted line and `::first-letter` its first letter; `::before`/`::after` insert generated content; `::selection` styles selected text. For example, `p::first-letter { color: red; }`.
+
+**4. Explain CSS background properties with examples.** (2 marks)[^pyq-18]
+
+**Answer.** `background-color: lightblue` sets a color; `background-image: url("paper.png")` supplies an image; `background-repeat: no-repeat` prevents tiling; `background-position: center` positions it; `background-attachment: fixed` keeps it fixed during scrolling. These can be combined, for example `background: lightblue url("paper.png") no-repeat center fixed;`.
+
+#### Additional Practice
+
+**Original question · Suggested 3 marks.** A content-box element has width 180px, padding 8px, border 1px and margin 10px on every side. Find its border-box width and total horizontal space.
+
+**Answer.** Border-box width = `180 + 2(8) + 2(1) = 198px`. Total horizontal space including margins = `198 + 2(10) = 218px`. Padding lies inside the border; margin lies outside it.
+
+---
+
+### 5. Complete Page-Design Questions
+
+These questions combine HTML structure, navigation, CSS layout and simple page behaviour. Read the relevant concepts before writing the complete page.
+
+**1. Display favourite holiday destinations as images linking to story pages; use external CSS for headings, images, links, margins and backgrounds.** (10 points)[^pyq-08]
 
 **Answer.** The site consists of a destination index, linked story pages and one shared stylesheet. The named images are illustrative resources used by the answer.
 
@@ -319,83 +701,7 @@ img { display: block; width: 240px; height: 160px; border: 2px solid navy; }
 
 The anchors make each destination image clickable; the shared stylesheet gives all pages consistent styling. Together, the pages provide the destination navigation and the corresponding travel stories.
 
-### I.11 HTML tables
-
-A table presents data whose meaning depends on rows and columns. The `table` element encloses the structure, `tr` creates a row, `th` marks a header cell and `td` a data cell. A `caption` gives the table a title. Use header cells for labels and data cells for entries so that the structure remains clear.
-
-When one entry covers several positions, `colspan` spans columns and `rowspan` spans rows. For example, `<tr><td colspan="2">Total</td></tr>` places one cell across two columns. These attributes describe the table's structure; borders, padding, spacing and alignment are controlled with CSS.
-
-The following examination examples show how that small set of elements produces a complete table.
-
-#### Examination practice
-
-**Question 1.** Write HTML for the pictured Roll No./Student Name/Subject Name table.
-
-*[2019 paper][paper-2019], Q1.A(ii), PDF p. 1, 3 marks*
-
-**Answer.**
-
-```html
-<style>
-  table { border-collapse: collapse; }
-  th, td { border: 1px solid black; padding: 4px; }
-</style>
-<table>
-  <tr><th>Roll No.</th><th>Student Name</th><th>Subject Name</th></tr>
-  <tr><td>1</td><td>Ram</td><td>Physics</td></tr>
-  <tr><td>2</td><td>Shyam</td><td>Math</td></tr>
-  <tr><td>3</td><td>Murli</td><td>Chemistry</td></tr>
-</table>
-```
-
-**Question 2.** Explain tags/attributes for HTML/CSS tables with examples.
-
-*[2024 paper, image 2][paper-2024-b], Q2(d), 2 marks*
-
-**Answer.** `table`, `tr`, `th` and `td` define the table, rows, header and data cells. `colspan="2"` spans two columns and `rowspan="2"` two rows. `table { border-collapse: collapse; }` and `th, td { border: 1px solid; padding: 4px; }` style the table. The table in the preceding answer demonstrates the row and cell structure.
-
-### I.12 Frames
-
-A **frame** displays another HTML document within a browsing area. The `iframe` element embeds that document inside an ordinary page, giving it its own display area:
-
-```html
-<iframe src="story.html" title="Travel story"
-        style="width: 100%; height: 180px; border: 1px solid black;"></iframe>
-```
-
-This differs from a DIV: a DIV groups content in the same document, whereas an iframe contains a separate document.
-
-The syllabus also uses the historical term “frames”, so recognise `<frameset cols="25%,75%"><frame src="menu.html"><frame src="main.html"></frameset>`. In that older document form, a frameset replaced the normal body. The `frameset` and `frame` elements are obsolete in HTML5; the retained layout task uses an iframe.[^frames]
-
-#### Examination practice
-
-**Application in a shared question.** The diagram includes an iframe with inline styles. The full retained layout answer is in I.20. Its additional `marquee` requirement remains excluded.
-
-*[2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion*
-
-### I.13 HTML forms and integrated page construction
-
-A **form** collects related input and gives the user a way to submit it. Its `action` identifies the receiving resource and its `method` determines the submission method. Controls normally need `name` attributes to contribute values to the submission; an `id` instead identifies an element within the document.
-
-Different controls suit different kinds of input. Radio buttons sharing one name represent alternatives, while a checkbox represents an independent choice. A `select` provides a list of options, and a `textarea` accepts multiline text. Labels explain what each control expects.
-
-```html
-<form action="/register" method="post">
-  <label>Name <input name="student" required></label>
-  <label>Course <select name="course"><option>IWT</option></select></label>
-  <label><input type="checkbox" name="updates" value="yes">Send updates</label>
-  <label>Message <textarea name="message"></textarea></label>
-  <button type="submit">Register</button>
-</form>
-```
-
-A submit button initiates submission. A button with `type="button"` performs only its programmed action. Constraints such as `required`, input types and JavaScript checks help the user provide suitable data, but a receiving server must still validate it. The fuller treatment in II.11 combines the language and DOM techniques needed to read, check and display form values.
-
-#### Examination practice
-
-**Question 1.** Retain the HTML registration form with first/last name, email, password, gender radio buttons and submit.
-
-*[2019 paper][paper-2019], Q3.B, PDF p. 2, original 1+4 marks; no HTML-only split · Retained portion*
+**2. Retain the HTML registration form with first/last name, email, password, gender radio buttons and submit.** (retained portion; marks not separately given)[^pyq-12]
 
 **Answer.**
 
@@ -416,9 +722,7 @@ A submit button initiates submission. A button with `type="button"` performs onl
 
 The action is an illustrative endpoint, not an implementation. Servlet lifecycle, Java code, deployment descriptors and database-table creation from the original question are excluded.
 
-**Question 2.** Retain the explicitly requested `index.html` login page.
-
-*[2021 paper, 2019-23 batch][paper-2021-b], Q5(ii), PDF p. 4, marks not visible · Retained portion*
+**3. Retain the explicitly requested `index.html` login page.** (marks not shown)[^pyq-13]
 
 **Answer.**
 
@@ -434,11 +738,7 @@ The action is an illustrative endpoint, not an implementation. Servlet lifecycle
 
 This collects the credentials; authenticating them requires a server. The original servlet and `web.xml` portions are excluded.
 
-See also: both 2021 registration/validation tasks and [2024 paper, image 1][paper-2024-a], Q1(b), 5 marks, hackathon application, have complete models in II.11. Reuse those answers rather than studying duplicate implementations.
-
-**Question 3.** Design a local-product shopping site with catalogue, ordering and billing pages.
-
-*[2024 paper, image 2][paper-2024-b], Q3(a), 5 marks*
+**4. Design a local-product shopping site with catalogue, ordering and billing pages.** (5 marks)[^pyq-14]
 
 **Answer.** Three connected pages present a local product, accept an order and display its bill. Here the product and price are illustrative choices, not details supplied by the paper. The GET form carries the quantity in the URL query; the billing page reads it and computes the displayed total. This is a front-end exam demonstration, not payment processing or authoritative server billing.
 
@@ -487,248 +787,7 @@ article { border: 1px solid; padding: 1rem; }</style></head>
 
 The catalogue leads to the order form, which passes the quantity to the billing page. Together they demonstrate the three requested pages, navigation, input checking and calculation.
 
-### I.14 Inline, internal and external CSS
-
-CSS separates how a document looks from what its HTML means. A rule such as `p { color: navy; }` selects paragraphs and gives their text a navy colour. The selector identifies the elements; the declaration block contains property-value pairs that describe their presentation.
-
-The same rule can be attached to a document in three ways:
-
-| Method | Example | Where it applies |
-| --- | --- | --- |
-| Inline | `<p style="color: navy;">Hello</p>` | The individual element. |
-| Internal | `<style>p { color: navy; }</style>` in `head` | The current document. |
-| External | `<link rel="stylesheet" href="site.css">`, with the rule in that stylesheet | Any document that links to the stylesheet. |
-
-External CSS is especially useful when several pages share one design: changing the stylesheet can update them together. The placement of a rule, however, is only part of deciding whether it wins. The next topic explains how matching selectors and specificity resolve competing declarations.
-
-#### Examination practice
-
-**Question 1.** Explain ways of using CSS in HTML, with examples.
-
-*[2019 paper][paper-2019], Q1.B(i), PDF p. 1, 2 marks*
-
-**Answer.** Inline CSS uses the `style` attribute, as in `<p style="color: navy;">Hello</p>`. Internal CSS uses a rule such as `<style>p { color: navy; }</style>` in `head`. External CSS uses `<link rel="stylesheet" href="site.css">`, with the rule in that stylesheet, allowing several pages to share it.
-
-See also: the unnumbered travel task in [2021 paper, 2018-22 batch][paper-2021-a], p. 1, 10 points, is answered fully in I.10; the retained CSS/iframe task in [2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), p. 1, marks not visible, is answered in I.20.
-
-### I.15 CSS selectors, combinators, attribute selectors and specificity
-
-A **selector** describes which elements a CSS rule should affect. Some selectors identify an element directly, while others describe a group or a relationship. A class may be shared across several elements; an ID should identify one element in the document. A comma combines separate selectors, whereas a **combinator** describes how elements are related.
-
-#### Selecting elements and relationships
-
-| Selector | Meaning |
-| --- | --- |
-| `p`, `.note`, `#result`, `*` | Element, class, ID and universal selector. |
-| `h1, h2` | Both sets of headings. |
-| `article p`, `article > p` | Any descendant paragraph; a direct-child paragraph. |
-| `h2 + p`, `h2 ~ p` | The next sibling paragraph; later sibling paragraphs with the same parent. |
-| `input[type="email"]`, `[required]` | A matching attribute value; the presence of an attribute. |
-| `[href^="https"]`, `[href$=".pdf"]`, `[class~="note"]` | A value that starts with, ends with, or contains a space-separated word. |
-
-Notice the difference between `p.note` and `.note p`. The first selects a paragraph that itself has the class `note`; the second selects a paragraph inside an element with that class. Reading a selector as a description of elements helps avoid confusing the two.
-
-#### Resolving competing rules
-
-**Specificity** compares matching selectors when their declarations are otherwise comparable. Count IDs first, then classes/attributes/pseudo-classes, then elements/pseudo-elements. Thus `#result` outranks `.note`, which outranks `p`. If competing rules remain equal, the later declaration wins.[^specificity]
-
-```html
-<style>
-  p { color: blue; }
-  .note { color: green; }
-  #result { color: red; }
-</style>
-<p id="result" class="note">This text is red.</p>
-```
-
-The paragraph is red because the ID selector has greater specificity. Normal inline styling outranks normal stylesheet declarations, while an applicable `!important` declaration can override a normal inline declaration. This is why “internal always beats external” is not a reliable rule: the cascade must first compare the declarations and their selectors, then use source order when the relevant priorities tie.
-
-#### Examination practice
-
-**Question 1.** Name the selector used to specify a group of elements and justify it.
-
-*[2019 paper][paper-2019], Q1.B(ii), PDF p. 1, 3 marks*
-
-**Answer.** A **class selector** applies a shared style to a group of elements assigned the same class: `.notice { color: red; }` matches both `<p class="notice">Exam</p>` and `<h2 class="notice">Revision</h2>`. Unlike an ID, a class is reusable across elements. If “group” is used to mean a **grouping selector**, explain the comma form too: `h1, h2, p { color: red; }` applies one rule to several selector groups. The printed question does not distinguish these two meanings; state the interpretation rather than silently guessing.
-
-See also: [2024 paper, image 2][paper-2024-b], Q5(c), 2 marks, JavaScript access through selectors: full model in II.8.
-
-### I.16 Pseudo-classes and pseudo-elements
-
-A page often needs to distinguish an element's state from a particular part of its content. A **pseudo-class** selects an element in a state or relationship: `a:hover` selects a hovered link, `input:focus` the focused input, and `li:first-child` a list item that is its parent's first child. `a:visited` describes a link's visited state.
-
-A **pseudo-element** instead selects part of an element or supplies generated content. For example, `p::first-line` refers to the first formatted line and `p::first-letter` to the first letter. `::before` and `::after` generate content around an element's content, while `::selection` styles selected text.
-
-```css
-a:hover { color: red; }
-p::first-letter { font-size: 2em; }
-p::first-line { font-weight: bold; }
-.notice::before { content: "Note: "; }
-.notice::after { content: " *"; }
-::selection { background: gold; }
-```
-
-> A pseudo-class describes the element's state or relationship. A pseudo-element addresses a part of it or generated content.
-
-The double colon distinguishes pseudo-elements from pseudo-classes. In particular, `::before` and `::after` normally need a `content` declaration to produce visible generated content.
-
-#### Examination practice
-
-**Question 1.** Define a pseudo-element and explain CSS pseudo-elements.
-
-*[2024 paper, image 2][paper-2024-b], Q2(c), 2 marks*
-
-**Answer.** A pseudo-element styles a selected part of an element. `::first-line` styles its first formatted line and `::first-letter` its first letter; `::before`/`::after` insert generated content; `::selection` styles selected text. For example, `p::first-letter { color: red; }`.
-
-### I.17 Colors and backgrounds
-
-The `color` property sets the text colour, while background properties paint the area behind the content. A colour can be written as a name such as `navy`, a hexadecimal value such as `#003366`, an RGB value such as `rgb(0,51,102)`, or a value with transparency such as `rgba(0,51,102,0.5)`.
-
-A background may combine a colour with an image. The properties below specify the image's repetition, position, size and behaviour during scrolling:
-
-```css
-body {
-  color: #123;
-  background-color: #eef6ff;
-  background-image: url("paper.png");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
-}
-/* Alternative shorthand for these background settings: */
-.banner { background: #eef6ff url("paper.png") center top / cover no-repeat fixed; }
-```
-
-`repeat` tiles the image, while `no-repeat` prevents tiling. `cover` scales it to cover the area and may crop it. The usual `scroll` attachment moves with the element; `fixed` keeps the background fixed relative to the viewport.
-
-The shorthand collects several settings into one declaration, but it can also reset omitted component properties. Read it as a complete background setting rather than assuming it preserves every earlier value. An HTML image contributes content to the document; a CSS background supplies presentation behind that content.
-
-#### Examination practice
-
-**Question 1.** Explain CSS background properties with examples.
-
-*[2024 paper, image 1][paper-2024-a], Q2(b), 2 marks*
-
-**Answer.** `background-color: lightblue` sets a color; `background-image: url("paper.png")` supplies an image; `background-repeat: no-repeat` prevents tiling; `background-position: center` positions it; `background-attachment: fixed` keeps it fixed during scrolling. These can be combined, for example `background: lightblue url("paper.png") no-repeat center fixed;`.
-
-See also: the travel prompt ([2021 paper, 2018-22 batch][paper-2021-a], p. 1, 10 points) and retained layout task ([2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), p. 1, marks not visible) are answered in I.10 and I.20.
-
-### I.18 Borders, margins, padding and units
-
-Every rendered element occupies a box. Starting at its content, the **box model** adds padding, then a border, then an outside margin. Padding gives the content room inside its border; margin separates the box from its neighbours. A visible border needs a style such as `solid` as well as its width and colour.
-
-```text
-margin -> border -> padding -> content -> padding -> border -> margin
-```
-
-#### Calculating the space a box occupies
-
-Consider the following rule:
-
-```css
-.card {
-  width: 200px;
-  padding: 10px;
-  border: 2px solid navy;
-  margin: 15px;
-}
-```
-
-With the default `content-box` sizing, `width` refers to the content alone. Adding the left and right padding and borders gives a border-box width of `200 + 20 + 4 = 224px`. Including the horizontal margins gives `254px` of occupied space.
-
-The calculation is:
-
-$$
-W_{\text{border box}} = W_{\text{content}} + P_{\text{left}} + P_{\text{right}} + B_{\text{left}} + B_{\text{right}}.
-$$
-
-With `box-sizing: border-box`, the declared width already includes content, padding and border. **Margins remain outside the declared width in both models.**
-
-#### Choosing units and shorthand values
-
-A `px` is a CSS pixel; `%` uses the relevant reference dimension. An `em` is relative to font size, or to the parent's font size when setting `font-size`; `rem` refers to the root font size. The units `vw` and `vh` are percentages of the viewport's width and height.
-
-Spacing shorthand follows a consistent order. Four values mean top, right, bottom and left; two values mean vertical and horizontal. Keeping padding inside the border and margin outside it is more useful than memorising the properties as interchangeable spacing controls.
-
-#### Examination practice
-
-**Application in a shared question.** The CSS box-model layout is answered in I.20. Margins also appear in the 10-point travel task answered in I.10.
-
-*[2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion*
-
-#### Additional practice
-
-**Original question · Suggested 3 marks.** A content-box element has width 180px, padding 8px, border 1px and margin 10px on every side. Find its border-box width and total horizontal space.
-
-**Answer.** Border-box width = `180 + 2(8) + 2(1) = 198px`. Total horizontal space including margins = `198 + 2(10) = 218px`. Padding lies inside the border; margin lies outside it.
-
-### I.19 Fonts, links, icons, lists and table styling
-
-Typography and the styling of familiar HTML structures make a page readable and its controls recognisable. Font properties choose a typeface, size, weight and style; link rules indicate interaction states; list and table properties clarify how items belong together.
-
-```css
-body { font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; }
-h1 { font-weight: bold; font-style: normal; }
-a:link { color: navy; }
-a:visited { color: purple; }
-a:hover, a:focus { text-decoration: underline; }
-a:active { color: red; }
-.icon { color: navy; font-size: 1.2em; }
-ul { list-style-type: square; list-style-position: inside; }
-table { width: 100%; border-collapse: collapse; }
-th, td { border: 1px solid #777; padding: 6px; text-align: left; }
-```
-
-A generic fallback such as `sans-serif` lets the browser choose a suitable font when the preferred typeface is unavailable. Link states such as `:hover` and `:visited` are pseudo-classes, so their styles apply when the corresponding state holds.
-
-An **icon** is a small visual symbol. It can be an image or a text symbol styled with CSS; for example, `<span class="icon" aria-hidden="true">&#9733;</span> Favourite` places a styled star beside its text label. No icon library is needed for this topic.
-
-For lists, `list-style-image: url("bullet.png")` supplies image bullets, and `list-style` combines the list settings. In a table, cell padding creates room inside each cell. By contrast, `border-spacing` separates cells in a separated-border table, while `border-collapse: collapse` merges adjacent borders. These properties solve different spacing problems.
-
-#### Examination practice
-
-Related examination practice: [2024 paper, image 2][paper-2024-b], Q2(d), 2 marks, table tags/styling has a full model in I.11; the 2021 travel prompt, p. 1, 10 points overall, includes styled headings/links and is answered in I.10.
-
-### I.20 Display, positioning and website layout
-
-A page layout determines where elements appear, how much room they occupy and what happens when content does not fit. Begin with normal document flow, then consider the properties that change it.
-
-#### Display and overflow
-
-A block box normally begins on a new line; inline content flows with surrounding text. `inline-block` keeps an element in that inline flow while allowing explicit dimensions. Hiding an element also has two distinct meanings: `display: none` removes its layout box, while `visibility: hidden` preserves the space but hides the contents.
-
-When content exceeds its box, `overflow: auto` provides scrolling when needed, `hidden` clips the excess and `visible` lets it extend beyond the box.
-
-#### Positioning, alignment and columns
-
-| Setting | Effect |
-| --- | --- |
-| `position: static` | Uses normal flow. |
-| `position: relative` | Offsets the element while retaining its original space. |
-| `position: absolute` | Removes the element from normal flow and places it against its containing block, usually the nearest positioned ancestor. |
-| `position: fixed` | Normally positions the element against the viewport. |
-| `position: sticky` | Keeps normal behaviour until a specified scrolling threshold is reached. |
-| `float: left/right` | Lets surrounding inline content wrap beside the floated element. |
-| `clear` | Prevents an element from sitting beside earlier floats. |
-
-For horizontal alignment, `text-align: center/right` aligns inline content; `margin: auto` centres a block that has a suitable width. `vertical-align: middle` applies to inline-level or table-cell content, rather than to arbitrary block boxes.
-
-Text can also flow through newspaper-style columns using `column-count`, `column-gap` and `column-rule`. The following rules combine that idea with a floated picture and a section that clears earlier floats:
-
-```css
-.reading { column-count: 2; column-gap: 2rem; column-rule: 1px solid #aaa; }
-.picture { float: left; margin-right: 1rem; }
-.next { clear: both; }
-```
-
-A complete website arranges these boxes into navigation, a header, content and a footer. The examination tasks below apply the same properties to recognisable pages.
-
-#### Examination practice
-
-**Question 1.** Design an HTML/CSS website about tourism sites of Odisha.
-
-*[2024 paper, image 1][paper-2024-a], Q1(a), 5 marks*
+**5. Design an HTML/CSS website about tourism sites of Odisha.** (5 marks)[^pyq-20]
 
 **Answer.** The following single-page site provides a heading, destination information, navigation and CSS styling. The named images are illustrative resources for the page.
 
@@ -751,9 +810,7 @@ A complete website arranges these boxes into navigation, a header, content and a
 </body></html>
 ```
 
-**Question 2.** Explain CSS usage and reproduce the pictured layout using the box model and different backgrounds. Retain float menu, centred header, right-aligned content/footer and inline-styled iframe; exclude the `marquee` instruction.
-
-*[2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion*
+**6. Explain CSS usage and reproduce the pictured layout using the box model and different backgrounds. Retain float menu, centred header, right-aligned content/footer and inline-styled iframe; exclude the `marquee` instruction.** (marks not shown)[^pyq-21]
 
 **Answer.** CSS controls presentation separately from HTML structure, making styles reusable. This layout uses a floated left column, an offset right column, and a cleared footer; borders/padding define the boxes.
 
@@ -782,91 +839,25 @@ A complete website arranges these boxes into navigation, a header, content and a
 </div></body></html>
 ```
 
-See also: [2021 paper, 2019-23 batch][paper-2021-b], Q2(ii), p. 2, marks not visible, user-sized DIV/text wrapping: complete JavaScript/DOM model in II.8.
-
-### I.21 Navigation bars, dropdowns, image galleries and styled forms
-
-A navigation bar, dropdown, gallery or styled form is a composition of the selectors and layout properties already introduced. A navigation bar presents links consistently; a dropdown reveals a subordinate group of links; a gallery repeats image or image-link items. Form styles help readers distinguish labels, fields and actions.
-
-```html
-<style>
-  nav > ul { list-style: none; padding: 0; }
-  nav li { display: inline-block; position: relative; }
-  nav a { display: block; padding: 8px; }
-  .submenu { display: none; position: absolute; background: white;
-             list-style: none; padding: 0; }
-  li:hover > .submenu, li:focus-within > .submenu { display: block; }
-  .gallery a { display: inline-block; margin: 8px; }
-  .gallery img { width: 150px; border: 1px solid; }
-  label { display: block; margin: 8px 0; }
-  input { padding: 6px; border: 1px solid #777; }
-</style>
-<nav><ul><li><a href="#sites">Destinations</a><ul class="submenu">
-  <li><a href="puri.html">Puri</a></li>
-</ul></li></ul></nav>
-<div class="gallery" id="sites">
-  <a href="puri.html"><img src="puri.jpg" alt="Puri"></a>
-</div>
-```
-
-In this example, the dropdown's parent is positioned so that its absolutely positioned submenu is placed relative to that parent. The submenu is normally hidden and appears when the parent is hovered or contains focus. The gallery uses inline-block links to place images alongside one another.
-
-The same principles apply to forms: consistent spacing, readable labels and a clear border make fields easier to scan. Meaningful link destinations and image alternatives remain important regardless of the styling.
-
-#### Examination practice
-
-Related examination practice: the travel/gallery task ([2021 paper, 2018-22 batch][paper-2021-a], p. 1, 10 points) has its complete answer in I.10. The hackathon form ([2024 paper, image 1][paper-2024-a], Q1(b), 5 marks) is answered in II.11.
-
-### I.22 Opacity, text effects, animations, tooltips and counters
-
-The remaining CSS effects refine the presentation of content without changing its underlying structure. **Opacity** controls the transparency of the entire element, including its contents: `0` is transparent and `1` is opaque. An alpha background colour instead changes only that background.
-
-**Text effects** include shadows, wrapping and an ellipsis when text is clipped. An **animation** changes property values through named keyframes over time. A **tooltip** reveals a short explanation, while a **counter** numbers repeated elements automatically.
-
-```html
-<style>
-  .faded { opacity: 0.5; }
-  .heading { text-shadow: 1px 1px 2px #aaa; }
-  .short { width: 12em; white-space: nowrap; overflow: hidden;
-           text-overflow: ellipsis; }
-  .wrap { overflow-wrap: anywhere; }
-  @keyframes highlight { from { background: white; } to { background: gold; } }
-  .notice { animation: highlight 2s infinite alternate; }
-  .tip { position: relative; }
-  .tip span { display: none; position: absolute; top: 100%; left: 0;
-              padding: 4px; background: black; color: white; }
-  .tip:hover span, .tip:focus span { display: block; }
-  .steps { counter-reset: step; }
-  .steps p::before { counter-increment: step; content: counter(step) ". "; }
-</style>
-<p class="faded">Half opacity</p>
-<h2 class="heading">Revision</h2>
-<p class="short">A long sentence that does not fit in this narrow area.</p>
-<p class="wrap">averylongwordthatmustwrapinsideitscontainer</p>
-<p class="notice">Exam notice</p>
-<button class="tip" type="button">Help<span>Enter your student name.</span></button>
-<div class="steps"><p>Read</p><p>Practise</p></div>
-```
-
-Each effect depends on a small mechanism. The ellipsis needs a constrained width and clipping; the animation needs keyframes and a duration. The tooltip is hidden until interaction reveals it, and the counter is reset, incremented and displayed through generated content.
-
-These CSS mechanisms are sufficient for the prescribed topics. CSS animation remains distinct from the historical `marquee` instruction excluded from the older paper.
+---
 
 ## Module II - JavaScript, DOM, BOM and advanced concepts (10 hours)
 
-JavaScript turns a page into something a reader can use: it calculates, responds to actions and updates what the browser displays. Begin with the language itself, then learn how it reaches the document through the DOM. The form examples bring those ideas together; the BOM topics that follow explain the surrounding browser environment.
+Learn the language first. Then use it to work with the document, validate forms and interact with the browser.
 
-### II.1 JavaScript introduction, statements, comments and bindings
+### 6. JavaScript Basics
 
-JavaScript gives a page behaviour. It can calculate a total, check a form, respond to a button or change the text the reader sees. HTML supplies the structure and CSS the presentation; JavaScript expresses the decisions and actions that make the page interactive.
+JavaScript makes a page respond to the user. It can calculate a bill, check a form or change a message after a button is clicked.
 
-#### Values, variables and statements
+The relationship is:
 
-A **statement** performs an action, while an **expression** produces a value. In `const total = 3 * 200;`, the multiplication is an expression and the declaration gives its result a name. Comments explain the code without running as instructions: `//` begins a single-line comment and `/* ... */` encloses a block comment.
+> HTML gives the page structure. CSS controls its appearance. JavaScript supplies its behaviour.
 
-A variable is a named binding to a value. JavaScript is **dynamically typed**: a value has a type, and a reassignable variable can later hold a value of another type. Common values include numbers (`12`), strings (`"IWT"`) and booleans (`true`). `undefined` usually indicates an uninitialised or missing value, while `null` can express an intentional absence. Objects and arrays hold related data.
+#### Statements, Values and Variables
 
-Quotes matter: `"12"` is text, whereas `12` is a number. The following example uses numeric values to calculate a cost:
+A **statement** performs an action. An **expression** produces a value.
+
+In `const total = 3 * 200;`, multiplication produces a value and the declaration gives it a name. `//` begins a single-line comment; `/* ... */` encloses a block comment.
 
 ```javascript
 const price = 200;          // This binding will not be reassigned.
@@ -876,17 +867,25 @@ const total = price * quantity;
 console.log(total);         // 600
 ```
 
-#### Scope and declarations
+`quantity` changes from 2 to 3, so `total` becomes 600.
 
-**Scope** describes where a binding can be accessed. A function introduces a scope, and a block groups statements between braces. The choice of declaration determines whether a binding belongs to the whole function or to a particular block.
+JavaScript is **dynamically typed**: values have types, and a reassignable variable may later hold a different type.
 
-| Declaration | Scope | Reassignment | Same-scope redeclaration | Access before the declaration is reached |
+Common values are numbers (`12`), strings (`"IWT"`) and booleans (`true`). `undefined` usually means an uninitialised or missing value; `null` can represent an intentional absence. Objects and arrays hold related data.
+
+`12` and `"12"` are different: one is a number and the other is text.
+
+#### `var`, `let` and `const`
+
+**Scope** means where a variable can be accessed. A function creates a scope; a block groups statements inside braces.
+
+| Declaration | Scope | Reassignment | Same-scope redeclaration | Before declaration is reached |
 | --- | --- | --- | --- | --- |
-| `var` | Function scope, or global at top level | Allowed | Usually allowed with another `var` | The binding exists with `undefined`. |
-| `let` | Block scope | Allowed | Not allowed | Throws `ReferenceError`. |
-| `const` | Block scope | Not allowed; requires an initial value | Not allowed | Throws `ReferenceError`. |
+| `var` | Function, or global at top level | Allowed | Usually allowed with another `var` | Reads as `undefined`. |
+| `let` | Block | Allowed | Not allowed | Throws `ReferenceError`. |
+| `const` | Block | Not allowed; initial value required | Not allowed | Throws `ReferenceError`. |
 
-The scope difference becomes visible when the code leaves a block:
+The difference becomes visible after leaving a block:
 
 ```javascript
 function scopeExample() {
@@ -901,15 +900,25 @@ function scopeExample() {
 scopeExample();
 ```
 
-A `const` declaration prevents reassignment of its binding, but does not freeze an object. Thus `const item = { qty: 1 }; item.qty = 2;` is allowed, while assigning a different object to `item` is not. The access-before-initialisation distinction in the table is enough for the present comparison; hoisting is developed in the planned advanced section.[^bindings]
+`x` belongs to the function, while `y` belongs to the inner block.[^bindings]
 
-#### Operators and decisions
+A `const` prevents reassignment, not changes inside an object. `const item = { qty: 1 }; item.qty = 2;` is allowed; assigning a different object to `item` is not.
 
-Arithmetic operators calculate values: `+`, `-`, `*`, `/`, `%` for remainder and `**` for powers. `++` and `--` increment or decrement, while `=`, `+=` and `-=` assign or update values. Comparisons such as `<`, `<=`, `>`, `>=`, `===` and `!==` test relationships; `&&`, `||` and `!` combine or negate logical conditions.
+#### Operators and Decisions
 
-Strict equality compares without converting types: `2 === "2"` is false, while `2 == "2"` is true because `==` permits conversion. Likewise, `typeof 12` is `"number"` and `typeof "12"` is `"string"`. The `+` operator can also join text, so `"2" + 3` produces `"23"`. Form values arrive as strings: check for blank input, then use `Number(value)` when arithmetic is intended. In particular, `Number("")` produces zero.
+| Purpose | Operators |
+| --- | --- |
+| Arithmetic | `+`, `-`, `*`, `/`, `%` for remainder, `**` for powers. |
+| Increment/decrement | `++`, `--`. |
+| Assignment/update | `=`, `+=`, `-=`. |
+| Comparison | `<`, `<=`, `>`, `>=`, `===`, `!==`. |
+| Logical conditions | `&&`, `\|\|`, `!`. |
 
-An `if/else` selects a branch, the conditional operator expresses a short choice, and a `switch` selects among cases:
+Strict equality avoids type conversion: `2 === "2"` is false, while `2 == "2"` is true. `typeof 12` gives `"number"`; `typeof "12"` gives `"string"`.
+
+The `+` operator can also join text, so `"2" + 3` becomes `"23"`. Form values are strings: check for blank input, then use `Number(value)` before arithmetic. `Number("")` produces zero.
+
+An `if/else` chooses a branch, the conditional operator expresses a short choice, and `switch` selects among cases:
 
 ```javascript
 let marks = 65;
@@ -925,27 +934,25 @@ switch (result) {
 }
 ```
 
-> Assignment changes a value; comparison tests a relationship. A number and text that looks like a number are still different values.
+Use parentheses when grouping might be unclear. These examples use ordinary small inputs; JavaScript numbers have finite precision.
 
-Use parentheses when the intended grouping of an expression might be unclear. The numeric examples here use ordinary small inputs; JavaScript numbers have finite precision.
+#### Examination Practice
 
-#### Examination practice
-
-**Question 1.** Differentiate `let` and `var`.
-
-*[2024 paper, image 2][paper-2024-b], Q4(c), 2 marks*
+**1. Differentiate `let` and `var`.** (2 marks)[^pyq-22]
 
 **Answer.** `let` is block-scoped, whereas `var` is function-scoped. `let` cannot be redeclared in the same scope; `var` generally can. A `var` binding can be read as `undefined` before its declaration is executed, while accessing `let` before initialisation throws an error. For example, in `if (true) { var a = 1; let b = 2; }`, `a` remains accessible in the enclosing function but `b` does not.
 
-**Question 2.** Retain introductory JavaScript characteristics and script attributes; exclude detailed Java study.
+**2. Retain introductory JavaScript characteristics and script attributes; exclude detailed Java study.** (retained portion; original 1+1 marks)[^pyq-23]
 
-*[2019 paper][paper-2019], Q6.A(i), PDF p. 2, original 1+1 marks · Retained portion*
+**Answer.** JavaScript is dynamically typed and can run in the browser to handle events, validate forms and update the document. It is a separate language, not a variant of Java. Script inclusion/attributes are answered in [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms). No separate retained-only mark total is inferred for the comparison.
 
-**Answer.** JavaScript is dynamically typed and can run in the browser to handle events, validate forms and update the document. It is a separate language, not a variant of Java. Script inclusion/attributes are answered in I.8. No separate retained-only mark total is inferred for the comparison.
+---
 
-### II.2 Functions, objects and `this`
+### 7. Functions, Objects and Classes
 
-A **function** gives a name to an operation so that the program can perform it with different inputs. Parameters name those inputs inside the function; arguments are the actual values supplied by a call. A `return` statement supplies the result and ends that invocation. Without an explicit result, the function returns `undefined`.
+A **function** packages an operation so it can be used with different inputs.
+
+Parameters name the inputs inside the function. Arguments are the values supplied when calling it. `return` supplies the result and ends that call; without an explicit result, the function returns `undefined`.
 
 ```javascript
 function cost(price, quantity) {
@@ -955,13 +962,15 @@ function cost(price, quantity) {
 console.log(cost(200, 3));           // 600
 ```
 
-Here, `price` and `quantity` are parameters, while `200` and `3` are arguments. The local `total` belongs to that invocation, and `return` makes its value available to the caller.
+Here, `price` and `quantity` are parameters. `200` and `3` are arguments. The local `total` belongs to this call, and the caller receives 600.
 
-#### Objects, methods and `this`
+#### Objects and Methods
 
-An **object** groups named properties that belong together. A property whose value is a function is a **method**. Dot access uses a known property name, as in `student.name`; bracket access can use a variable, as in `student[key]`. Assignment adds or updates a property, while `delete student.phone` removes one.
+An **object** groups named properties. A property containing a function is a **method**.
 
-When an ordinary method is called as `object.method()`, **`this` refers to the receiving object**. The method can therefore use that object's current data instead of hard-coding the object's name:
+Use `student.name` for a known property, or `student[key]` when the name comes from a variable. Assignment adds or updates a property; `delete student.phone` removes one.
+
+For an ordinary call `object.method()`, `this` refers to the receiving object:
 
 ```javascript
 const student = {
@@ -974,21 +983,57 @@ const student = {
 console.log(student.result());       // Anu: Pass
 ```
 
-The call `student.result()` makes `student` the receiver, so `this.name` and `this.marks` refer to that student's properties. The value of `this` depends on the call; it is not universally fixed by where a function was written.
+Because the call is `student.result()`, `this.name` and `this.marks` refer to that student's properties.
 
-It also helps to distinguish a function from a call to it. `result` refers to a function, while `result()` invokes it. This distinction will matter again when functions are registered as event handlers.
+> The value of `this` depends on the call. It is not universally fixed by where the function was written.
 
-#### Examination practice
+Also distinguish `result` from `result()`: the first refers to a function, while the second calls it. This matters when registering event handlers later.
 
-**Question 1.** State the purpose of `this` in JavaScript, with an example.
+#### Classes and Instances
 
-*[2019 paper][paper-2019], Q2.A(i), PDF p. 1, 2 marks*
+A **class** describes objects that share a structure and behaviour. `new` creates an instance, and `constructor` initialises its data.
+
+```javascript
+class Student {
+  constructor(name, marks) {
+    this.name = name;
+    this.marks = marks;
+  }
+  result() { return this.marks >= 40 ? "Pass" : "Fail"; }
+}
+const anu = new Student("Anu", 65);
+const ravi = new Student("Ravi", 30);
+console.log(anu.result(), ravi.result()); // Pass Fail
+```
+
+The students share the same method, but each has its own name and marks. Changing one student's data does not change the other's.
+
+#### Basic Inheritance
+
+**Inheritance** lets a specialised class reuse a parent's behaviour. `extends` names the parent. In a subclass constructor, `super(...)` calls the parent's constructor before using `this`.
+
+```javascript
+class ResearchStudent extends Student {
+  constructor(name, marks, topic) {
+    super(name, marks);
+    this.topic = topic;
+  }
+}
+const scholar = new ResearchStudent("Mina", 70, "Web usability");
+console.log(scholar.name, scholar.result()); // Mina Pass
+```
+
+The research student reuses the parent's name, marks and result, then adds a topic. A subclass may also replace an inherited method with its own implementation.
+
+This establishes the prescribed class relationship; deeper advanced treatment remains planned.
+
+#### Examination Practice
+
+**1. State the purpose of `this` in JavaScript, with an example.** (2 marks)[^pyq-24]
 
 **Answer.** In `object.method()`, `this` refers to the object on which the method is called, allowing access to its properties. For example, `const s = { name: "Anu", show: function () { return this.name; } }; console.log(s.show());` prints `Anu`.
 
-**Question 2.** Add a function to an object and access it with an example.
-
-*[2024 paper, image 2][paper-2024-b], Q4(a), 2 marks*
+**2. Add a function to an object and access it with an example.** (2 marks)[^pyq-25]
 
 **Answer.**
 
@@ -1000,29 +1045,47 @@ console.log(item.total());          // 600
 
 `total` is a function-valued property; `item.total()` invokes it, with `this` referring to `item`.
 
-See also: [2019 paper][paper-2019], Q6.A(ii), p. 2, 3 marks, sum of the first n primes: complete model in II.4.
+#### Additional Practice
 
-### II.3 Strings, numbers, arrays, Date, Math and random values
+**Original question · Suggested 3 marks.** Define a Student class with a constructor and a pass/fail method, and show two objects with different results.
 
-Programs commonly work with text, numerical values, ordered collections and dates. JavaScript provides built-in facilities for each, so many examination tasks reduce to choosing the right value and operation.
+**Answer.** The Student class above supplies a constructor, properties, a result method and two instances. `this.marks` selects the current instance's marks: 65 produces `Pass`, while 30 produces `Fail`. The threshold is an illustrative rule for this generated question, not a rule stated in a past paper.
 
-#### Working with text
+---
 
-A **string** stores text, with character positions counted from zero. Its `length` is a property rather than a method: `"Web".length` is `3`. Strings are immutable, so operations produce results without altering the original string. For example, `" Web ".trim()` produces `"Web"` while leaving the original value unchanged.
+### 8. Strings, Numbers, Arrays and Dates
 
-Other useful operations follow the same idea. `split(",")` separates comma-delimited text into an array, and `replace()` produces text with a replacement. The examination table below gives five further method examples with their results.
+JavaScript provides built-in operations for the values that appear repeatedly in examination programs: text, numbers, arrays and dates.
 
-#### Converting and displaying numbers
+The main question is:
 
-A **number** supports arithmetic. `Number("12.5")` converts a whole numeric string; `parseInt("12", 10)` parses a decimal integer and `parseFloat("12.5")` a floating-point value. Before converting a form field, check that it is not blank: conversion alone does not establish that the user supplied a number.
+> What kind of value am I working with, and what result should this operation return?
 
-`Number.isNaN(value)` identifies the special not-a-number value, while `Number.isFinite(value)` rejects infinity and NaN. For presentation, `price.toFixed(2)` produces a string rounded to two decimal places; it does not create a new numeric type.
+#### Strings
 
-#### Arrays and changes to their contents
+A **string** stores text. Character positions begin at zero, and `length` is a property: `"Web".length` is 3.
 
-An **array** stores an ordered collection using zero-based indices. With `const a = ["HTML", "CSS"];`, the first entry is `a[0] === "HTML"` and `a.length === 2`. `push()` and `pop()` add and remove at the end. The contents may change even when the array's binding was declared with `const`.
+Strings are immutable. `" Web ".trim()` produces `"Web"` without changing the original value. `split(",")` separates text into an array, and `replace()` produces a replaced string.
 
-The next example shows several operations in sequence, making both their return values and their effects visible:
+The examination table below gives five further String methods and their results.
+
+#### Numbers
+
+`Number("12.5")` converts a whole numeric string. `parseInt("12", 10)` parses a decimal integer, while `parseFloat("12.5")` parses a floating-point value.
+
+Check that a field is not blank before conversion. A conversion result alone does not prove that the user entered a number.
+
+`Number.isNaN(value)` identifies the not-a-number value, and `Number.isFinite(value)` rejects infinity and NaN.
+
+For display, `price.toFixed(2)` returns a string rounded to two decimal places. It does not create a new numeric type.
+
+#### Arrays
+
+An **array** is an ordered collection with zero-based indices. For `const a = ["HTML", "CSS"];`, `a[0] === "HTML"` and `a.length === 2`.
+
+`push()` and `pop()` add and remove at the end. A `const` array can still have its contents changed.
+
+Follow the array through these operations:
 
 ```javascript
 const a = [10, 20, 30];
@@ -1033,19 +1096,34 @@ console.log(a.shift(), a);          // 10, [25, 30]
 console.log(a.unshift(5), a);       // 3, [5, 25, 30]
 ```
 
-`join()` produces a string without changing the array. `splice()` changes the array and returns the removed entries; `slice()` instead copies a portion. `shift()` returns the first entry it removes, while `unshift()` returns the new length after inserting at the front.
+| Operation | Effect | Return value |
+| --- | --- | --- |
+| `join(separator)` | Joins elements without changing the array. | A string. |
+| `splice(start, count, ...items)` | Removes/inserts elements in place. | Removed entries. |
+| `shift()` | Removes the first entry. | The removed value. |
+| `unshift(...items)` | Inserts at the front. | The new length. |
 
-#### Dates, mathematical functions and random values
+Do not confuse `splice()` with `slice()`, which copies a portion.
 
-A **Date** represents a date/time value. `new Date()` obtains the current value; `getFullYear()`, `getMonth()` and `getDate()` extract local calendar components. Months start at zero, so add one for a human-readable month number. `getDay()` returns the weekday from 0 to 6, not the day of the month. `toLocaleDateString()` gives a readable local date.
+#### Dates and Mathematical Operations
 
-**Math** supplies numeric functions without requiring a Math object to be constructed. For random values, `Math.random()` returns a number from 0 inclusive to 1 exclusive. To obtain an integer from `low` to `high` inclusive, use `Math.floor(Math.random() * (high - low + 1)) + low`. Thus `Math.floor(Math.random() * 6) + 1` simulates a six-sided die.
+`new Date()` obtains the current date/time value. `getFullYear()`, `getMonth()` and `getDate()` obtain local calendar components.
 
-#### Examination practice
+Months begin at zero. Add one for a human-readable month number. `getDay()` gives the weekday from 0 to 6, not the day of the month.
 
-**Question 1.** Give five JavaScript Math methods and five String methods with examples.
+`toLocaleDateString()` gives a readable local date.
 
-*[2019 paper][paper-2019], Q5.B(ii), PDF p. 2, 1+1 marks*
+**Math** supplies numeric functions without constructing a Math object. The examples below include absolute value, square root and rounding.
+
+`Math.random()` returns a value from 0 inclusive to 1 exclusive. For an integer from `low` to `high` inclusive, use:
+
+`Math.floor(Math.random() * (high - low + 1)) + low`
+
+Thus `Math.floor(Math.random() * 6) + 1` simulates a six-sided die.
+
+#### Examination Practice
+
+**1. Give five JavaScript Math methods and five String methods with examples.** (1+1 marks)[^pyq-26]
 
 **Answer.** The following examples give five Math methods and five String methods with their results:
 
@@ -1057,15 +1135,11 @@ A **Date** represents a date/time value. `new Date()` obtains the current value;
 | `Math.ceil(2.2)` | `3` | `"Web".toUpperCase()` | `"WEB"` |
 | `Math.round(2.6)` | `3` | `"Web".toLowerCase()` | `"web"` |
 
-**Question 2.** Explain `join()`, `splice()`, `shift()` and `unshift()`.
-
-*[2024 paper, image 2][paper-2024-b], Q4(d), 2 marks*
+**2. Explain `join()`, `splice()`, `shift()` and `unshift()`.** (2 marks)[^pyq-27]
 
 **Answer.** `join(separator)` returns a string of joined array elements; `splice(start, count, ...items)` removes/inserts elements in place and returns removed elements; `shift()` removes/returns the first element; `unshift(...items)` inserts at the front and returns the new length. The sequential example above shows all four results.
 
-**Question 3.** Write a function to display today's date in the browser.
-
-*[2024 paper, image 2][paper-2024-b], Q4(e), 2 marks*
+**3. Write a function to display today's date in the browser.** (2 marks)[^pyq-28]
 
 **Answer.**
 
@@ -1081,15 +1155,23 @@ A **Date** represents a date/time value. `new Date()` obtains the current value;
 
 This uses the browser's current local date and display format. No particular date is hard-coded.
 
-### II.4 Loops and small programs
+---
 
-A **loop** repeats an operation while moving towards an ending condition. To understand one, identify where it starts, what keeps it running and what changes on each iteration. A missing update can prevent it from finishing; a mistaken boundary can make it run once too often or once too few.
+### 9. Loops, Regular Expressions and Errors
 
-| Loop | How it is controlled |
+Many small examination programs combine three ideas: repeat a calculation, check that input has the right form, and handle problems clearly.
+
+#### Loops
+
+A **loop** repeats an operation while progressing towards an ending condition.
+
+Identify its starting value, its condition and its update. A missing update may prevent termination; a wrong boundary may cause one extra or missing iteration.
+
+| Loop | How it works |
 | --- | --- |
 | `for` | Keeps initialisation, condition and update together. |
-| `while` | Tests the condition before each execution of the body. |
-| `do...while` | Tests afterwards, so the body runs at least once. |
+| `while` | Before the body. |
+| `do...while` | After the body, so it runs at least once. |
 
 ```javascript
 let total = 0;
@@ -1103,17 +1185,80 @@ for (const value of [10, 20]) console.log(value); // Values
 for (const key in { name: "Anu", marks: 65 }) console.log(key); // Property keys
 ```
 
-The `for...of` form visits array values, while `for...in` enumerates property keys and is not the usual choice for array values. Within a loop, `break` ends repetition and `continue` skips to the next iteration.
+`for...of` visits array values. `for...in` enumerates property keys and is not the usual choice for array values.
 
-The starting value should match the calculation: begin a sum at zero and a factorial product at one. Prime testing must reject values below 2. These small decisions are central to the numerical questions below.
+`break` ends a loop; `continue` skips to the next iteration. Begin a sum at zero and a factorial product at one. Prime testing must reject values below 2.
 
-> “The first n primes” counts how many primes to find. “Primes up to n” sets a limit on their values.
+> “The first n primes” counts how many to find. “Primes up to n” limits their values.
 
-#### Examination practice
+#### Regular Expressions
 
-**Question 1.** Find a number's factorial using input from a prompt dialog.
+A **regular expression** describes a text pattern. It can check whether a mobile number contains only digits, for example.
 
-*[2019 paper][paper-2019], Q2.B(ii), PDF p. 1, 2 marks*
+A literal such as `/web/i` places the pattern between slashes. `i` ignores case; `g` requests multiple matches for operations such as replacement.
+
+| Component | Meaning |
+| --- | --- |
+| `^`, `$` | Start and end of text. |
+| `[0-9]` | One digit. |
+| `+` | One or more repetitions. |
+| `*`, `?` | Zero or more; zero or one. |
+| `{n}` | Exactly n repetitions. |
+| `.`, `\.` | Any character except a line terminator in ordinary mode; a literal full stop. |
+
+`/[0-9]/` asks whether text contains a digit. `/^[0-9]+$/` requires the whole value to contain one or more digits.
+
+```javascript
+const digits = /^[0-9]+$/;
+console.log(digits.test("0123"));     // true
+console.log(digits.test("12a"));      // false
+console.log("Web Technology".search(/technology/i)); // 4
+console.log("web web".replace(/web/g, "IWT"));       // "IWT IWT"
+```
+
+`test()` belongs to a RegExp and returns a boolean. The string methods `search()` and `replace()` return the first match position (or `-1`) and a new string, respectively.
+
+For repeated form checks, a plain anchored pattern without `g` avoids the retained `lastIndex` position used by global `test()` calls.
+
+#### Errors and Exception Handling
+
+| Error | What happens | Example |
+| --- | --- | --- |
+| Syntax | Code cannot be parsed. | A missing bracket. |
+| Runtime | Failure during execution. | An undeclared variable is used. |
+| Logical | Code runs but gives the wrong result. | Solving “primes up to n” instead of “the first n primes”. |
+
+A `try...catch` statement handles an exception raised during an operation. `throw` deliberately reports an invalid condition; `finally`, when present, runs a final action after the try/catch.
+
+```javascript
+function checkedDivide(a, b) {
+  if (b === 0) throw new Error("Divisor must not be zero");
+  return a / b;
+}
+try {
+  console.log(checkedDivide(10, 0));
+} catch (error) {
+  console.log(error.message);       // Divisor must not be zero
+} finally {
+  console.log("Calculation attempt finished");
+}
+```
+
+The explicit divisor check is important: ordinary numeric division such as `10 / 0` produces infinity rather than automatically throwing.
+
+A catch block cannot repair a script that failed to parse in the first place.
+
+#### Debugging
+
+**Debugging** means locating and correcting errors.
+
+Reproduce the problem, read the console message and line number, then inspect relevant values. `console.log()` helps trace them.
+
+Browser breakpoints or `debugger;` let you pause and step through execution. After correcting the problem, retest normal input and boundaries such as zero or empty input.
+
+#### Examination Practice
+
+**1. Find a number's factorial using input from a prompt dialog.** (2 marks)[^pyq-29]
 
 **Answer.**
 
@@ -1133,9 +1278,7 @@ if (input !== null && input.trim() !== "") {
 
 For ordinary small exam inputs, `5` gives `120`; `0` gives `1` because the loop does not run. Prompt cancellation is distinguished from entering zero. Large-factorial arithmetic is not required by the question.
 
-**Question 2.** Write `sum()` to find the sum of the first n prime integers, taking n from element `number` in form `f`.
-
-*[2019 paper][paper-2019], Q6.A(ii), PDF p. 2, 3 marks*
+**2. Write `sum()` to find the sum of the first n prime integers, taking n from element `number` in form `f`.** (3 marks)[^pyq-30]
 
 **Answer.** The function counts the primes it finds while testing candidates from 2 upward. A divisor greater than the square root is unnecessary because a composite has a factor no greater than its square root.
 
@@ -1173,132 +1316,21 @@ For ordinary small exam inputs, `5` gives `120`; `0` gives `1` because the loop 
 
 For `n = 5`, the selected numbers are 2, 3, 5, 7 and 11, so the result is 28. Do not stop at candidate 5: n is the count of primes, not the largest candidate.
 
-### II.5 Regular expressions
-
-A **regular expression** describes a pattern to look for in text. It is useful when validity depends on the characters a value contains, such as requiring a mobile number to contain digits only. A literal such as `/web/i` supplies the pattern between slashes; the `i` flag makes matching ignore case. The `g` flag requests multiple matches for operations such as replacement.
-
-| Pattern component | Meaning |
-| --- | --- |
-| `^` and `$` | Start and end of the text. |
-| `[0-9]` | One digit in the specified range. |
-| `+` | One or more repetitions. |
-| `*` and `?` | Zero or more repetitions; zero or one repetition. |
-| `{n}` | Exactly n repetitions. |
-| `.` and `\.` | Any character except a line terminator in the ordinary mode; a literal full stop. |
-
-Combining these components gives a rule for a complete value. `/[0-9]/` asks whether the text contains a digit, whereas `/^[0-9]+$/` requires the entire text to consist of one or more digits.
-
-```javascript
-const digits = /^[0-9]+$/;
-console.log(digits.test("0123"));     // true
-console.log(digits.test("12a"));      // false
-console.log("Web Technology".search(/technology/i)); // 4
-console.log("web web".replace(/web/g, "IWT"));       // "IWT IWT"
-```
-
-The operations answer different questions. A RegExp's `test()` returns a boolean, a string's `search()` returns the first match position or `-1`, and `replace()` returns a new string with the replacement applied.
-
-For repeated form checks, use a plain anchored pattern without `g`; this avoids the retained `lastIndex` position used by global `test()` calls. The main aim is to express the actual validation rule clearly, rather than to introduce a more elaborate pattern than the question requires.
-
-#### Examination practice
-
-**Question 1.** Define RegExp and explain `search()`, `replace()` and `test()` with examples.
-
-*[2024 paper, image 2][paper-2024-b], Q4(b), 2 marks*
+**3. Define RegExp and explain `search()`, `replace()` and `test()` with examples.** (2 marks)[^pyq-31]
 
 **Answer.** A regular expression specifies a text-matching pattern. `"IWT".search(/W/)` returns `1`; `"IWT".replace(/W/, "Web")` returns `"IWebT"`; `/^[0-9]+$/.test("123")` returns `true`. The three operations locate, replace and test a match, respectively.
 
-See also: the registration validation in [2021 paper, 2019-23 batch][paper-2021-b], Q2(i), p. 2, marks not visible, is answered in II.11. RegExp is a suitable solution choice, not an explicitly demanded technique in that prompt.
-
-### II.6 Errors and debugging
-
-An incorrect program can fail in different ways. Recognising the kind of error helps you decide where to look and whether the program can handle it while running.
-
-| Kind of error | What happens | Example |
-| --- | --- | --- |
-| Syntax | The code cannot be parsed. | A missing closing bracket. |
-| Runtime | An error occurs during execution. | Using an undeclared variable. |
-| Logical | The code runs but gives an incorrect result. | Summing primes up to n when the task asks for the first n primes. |
-
-#### Reporting and handling exceptions
-
-A `try...catch` statement handles an exception raised while an operation is running. Its `try` block contains that operation. `catch` receives a thrown error so that the program can respond to it, and `throw` deliberately reports an invalid condition. A `finally` block, when present, performs a final action after the try/catch whether or not an exception occurred.
-
-```javascript
-function checkedDivide(a, b) {
-  if (b === 0) throw new Error("Divisor must not be zero");
-  return a / b;
-}
-try {
-  console.log(checkedDivide(10, 0));
-} catch (error) {
-  console.log(error.message);       // Divisor must not be zero
-} finally {
-  console.log("Calculation attempt finished");
-}
-```
-
-The explicit divisor check gives the caller a meaningful error. Ordinary JavaScript numeric division does not automatically throw for a zero divisor: a calculation such as `10 / 0` produces infinity. A catch block also cannot repair a script that failed to parse in the first place.
-
-#### Finding the cause through debugging
-
-**Debugging** means locating and correcting an error. First reproduce the problem and read any console message and line number. Then inspect the relevant values, using `console.log()` where useful. A breakpoint in browser developer tools, or `debugger;` while a debugger is active, lets you pause and follow execution until the first incorrect result appears.
-
-After making a correction, retest a normal case and relevant boundaries such as zero or empty input. Handling an exception keeps the program in control; debugging finds and fixes the reason something went wrong.
-
-#### Examination practice
-
-**Question 1.** What is JavaScript debugging and how can it be done?
-
-*[2024 paper, image 2][paper-2024-b], Q5(d), 2 marks*
+**4. What is JavaScript debugging and how can it be done?** (2 marks)[^pyq-32]
 
 **Answer.** Debugging is locating and correcting errors in JavaScript. Use the browser console to read errors and inspect values with `console.log()`. Use developer-tools breakpoints or `debugger` to pause and step through execution while watching variables, then correct and retest the code.
 
-### II.7 JavaScript classes and inheritance
+---
 
-A **class** describes how to create objects with a shared structure and behaviour. Its `constructor` initialises a new instance, and its methods operate on that instance's data through `this`. Calling the class with `new` creates an object from the definition.
+### 10. Working with the HTML DOM
 
-```javascript
-class Student {
-  constructor(name, marks) {
-    this.name = name;
-    this.marks = marks;
-  }
-  result() { return this.marks >= 40 ? "Pass" : "Fail"; }
-}
-const anu = new Student("Anu", 65);
-const ravi = new Student("Ravi", 30);
-console.log(anu.result(), ravi.result()); // Pass Fail
-```
+The **Document Object Model (DOM)** represents an HTML document as a tree of objects.
 
-Both students use the same `result()` method, but each has its own name and marks. Changing one student's marks therefore does not change the other student's result. The distinction is between the class as a definition and an instance as an individual object.
-
-#### Reusing behaviour through inheritance
-
-**Inheritance** allows a specialised class to reuse a parent class's behaviour. `extends` names the parent. When the subclass defines a constructor, `super(...)` calls the parent's constructor before the subclass uses `this`.
-
-```javascript
-class ResearchStudent extends Student {
-  constructor(name, marks, topic) {
-    super(name, marks);
-    this.topic = topic;
-  }
-}
-const scholar = new ResearchStudent("Mina", 70, "Web usability");
-console.log(scholar.name, scholar.result()); // Mina Pass
-```
-
-The research student gains the parent's name, marks and result behaviour, then adds a topic. A subclass may also replace an inherited method with its own implementation. This short treatment establishes the relationship between classes, objects, constructors and specialisation; deeper advanced material remains planned.
-
-#### Additional practice
-
-**Original question · Suggested 3 marks.** Define a Student class with a constructor and a pass/fail method, and show two objects with different results.
-
-**Answer.** The Student class above supplies a constructor, properties, a result method and two instances. `this.marks` selects the current instance's marks: 65 produces `Pass`, while 30 produces `Fail`. The threshold is an illustrative rule for this generated question, not a rule stated in a past paper.
-
-### II.8 HTML DOM foundations, selection and manipulation
-
-The browser does more than display HTML source. It builds a tree of objects representing the document, and JavaScript works with that tree through the **Document Object Model (DOM)**. Selecting an element gives the program access to its content, attributes, styles and position in the document. Changes to the tree can then change what the reader sees.
+JavaScript uses that tree to find elements, change content and styles, or add and remove nodes.
 
 ```text
 Document
@@ -1312,31 +1344,29 @@ Document
             └── text: "Revision"
 ```
 
-The HTML source describes the initial document; the live DOM may change after parsing. The distinction explains how a button can add a paragraph without the original HTML file itself being rewritten.
+The HTML file describes the initial document. The live DOM can change after parsing, so a button can add a paragraph without rewriting the HTML file.
 
-#### Finding the document and its elements
+#### Finding Elements
 
-The entry point is `document`. Its `document.documentElement` refers to `html`; `document.head`, `document.body`, `document.title` and `document.forms` provide access to familiar parts of the page. Selection methods then locate the element or group of elements a program needs.
+`document` is the entry point. `document.documentElement` refers to `html`; `document.head`, `document.body`, `document.title` and `document.forms` give familiar access points.
 
 | Method | Result |
 | --- | --- |
-| `document.getElementById("result")` | One element with that ID, or `null`. |
-| `document.getElementsByTagName("p")` | A live HTMLCollection of matching elements. |
-| `document.getElementsByClassName("note")` | A live HTMLCollection of elements with that class. |
-| `document.querySelector("p.note")` | The first matching element, or `null`. |
-| `document.querySelectorAll("p.note")` | A static NodeList of all matches. |
+| `getElementById("result")` | One element, or `null`. |
+| `getElementsByTagName("p")` | A live HTMLCollection. |
+| `getElementsByClassName("note")` | A live HTMLCollection. |
+| `querySelector("p.note")` | The first CSS-selector match, or `null`. |
+| `querySelectorAll("p.note")` | A static NodeList of all matches. |
 
-A single-element selection can fail to find anything and return `null`; a multiple selection can return an empty collection. A live collection updates its membership as the document changes, while a static collection keeps the membership found at selection time. II.10 develops that distinction further.
+Call these methods on `document`. A failed single selection returns `null`; a multiple selection may return an empty collection.
 
-Selection must happen after the relevant HTML exists. A script placed after the elements, or an external script loaded with `defer`, can access them once they have been parsed.
+Run the script after the relevant elements exist, for example after their HTML or through an external script with `defer`.
 
-#### Changing content, attributes and styles
+#### Changing Content, Attributes and Styles
 
-Use `.textContent` to read or write plain text. Use `.innerHTML` when markup is intended to be parsed or serialised, and `.value` for the current contents of an input or textarea. These properties serve different purposes: writing text is not the same operation as supplying new HTML.
+Use `.textContent` for plain text, `.innerHTML` for markup, and an input or textarea's `.value` for its current value.
 
-Attributes can be read with `getAttribute()`, changed with `setAttribute()` or removed with `removeAttribute()`. For example, `image.setAttribute("alt", "Puri beach")` changes an image's alternative text.
-
-Styles can be changed through properties such as `element.style.backgroundColor`, or through `classList.add()`, `remove()` and `toggle()`. The `.style` object reflects inline declarations; `getComputedStyle(element).color` reads the resolved style, including stylesheet rules. Notice that `background-color` in CSS becomes `backgroundColor` through the style object.
+Use `getAttribute()`, `setAttribute()` and `removeAttribute()` for attributes. For example, `image.setAttribute("alt", "Puri beach")` changes alternative text.
 
 ```html
 <p id="message" class="note">Original text</p>
@@ -1348,13 +1378,115 @@ Styles can be changed through properties such as `element.style.backgroundColor`
 </script>
 ```
 
-This example first selects the paragraph, then changes its text, background and title attribute. Structural operations, such as creating and inserting another paragraph, use a different set of DOM methods, as the examination examples show.
+The example selects a paragraph, then changes its text, background and title attribute.
 
-#### Examination practice
+A CSS property such as `background-color` becomes `backgroundColor` through `.style`. Classes can be changed with `classList.add()`, `remove()` and `toggle()`.
 
-**Question 1.** Define HTML DOM; name three JavaScript methods for manipulating it and explain them with examples.
+`.style` reflects inline declarations. `getComputedStyle(element).color` reads the resolved style, including stylesheet rules.
 
-*[2024 paper, image 2][paper-2024-b], Q3(b), 5 marks*
+#### Nodes and Navigation
+
+A **node** can be a document, element, text or comment. Attributes can be accessed as attribute nodes, but are not ordinary child nodes.
+
+| Node | `nodeType` |
+| --- | --- |
+| Element | `1` |
+| Text | `3` |
+| Comment | `8` |
+| Document | `9` |
+
+A text node's `nodeValue` holds its text. An element's `nodeValue` is `null`; use `.textContent` for its descendant text.
+
+Navigation follows relationships such as `parentNode`, `childNodes`, `firstChild`, `lastChild`, `nextSibling` and `previousSibling`.
+
+Whitespace can create text nodes. Therefore, `firstChild` may not be the first element.
+
+For element-only navigation, use `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling` and `previousElementSibling`:
+
+```html
+<ul id="tasks"><li>Read</li><li>Practise</li></ul>
+<script>
+  const list = document.getElementById("tasks");
+  const first = list.firstElementChild;
+  console.log(first.textContent);           // Read
+  console.log(first.nextElementSibling.textContent); // Practise
+  console.log(first.parentElement === list);         // true
+</script>
+```
+
+#### Adding and Removing Nodes
+
+A newly created node is not visible until it is inserted into the document.
+
+`createTextNode()` creates plain text. `appendChild()` inserts at the end; `insertBefore(newNode, referenceNode)` inserts before a child.
+
+`replaceChild(newNode, oldNode)` replaces a child, and `removeChild(child)` removes one:
+
+```javascript
+// Continue with the UL from the example above.
+const item = document.createElement("li");
+item.appendChild(document.createTextNode("Revise"));
+list.appendChild(item);
+const extra = document.createElement("li");
+extra.textContent = "Check examples";
+list.insertBefore(extra, item);
+const replacement = document.createElement("li");
+replacement.textContent = "Write answers";
+list.replaceChild(replacement, extra);
+list.removeChild(item);
+// Final element texts: Read, Practise, Write answers.
+```
+
+Appending an already attached node moves it rather than copying it.
+
+A **NodeList** is an indexed collection, accessed with `[i]` or `item(i)`, measured by `.length` and traversed with a loop. It is not an Array and may include non-element nodes.
+
+`querySelectorAll()` returns a static NodeList; `childNodes` returns a live NodeList. `children` and the `getElementsBy...` methods above return HTMLCollections.
+
+```javascript
+const snapshot = document.querySelectorAll("#tasks li");
+const liveElements = list.children;
+const before = snapshot.length;
+const added = document.createElement("li");
+added.textContent = "Review";
+list.appendChild(added);
+console.log(snapshot.length === before);     // true: snapshot membership unchanged
+console.log(liveElements.length === before + 1); // true: live collection updated
+```
+
+> “Static” fixes the collection's membership. The nodes already in it still reflect edits to their contents.[^collections]
+
+#### Events
+
+An **event** reports an action such as a click, value change or form submission. A listener is the function that responds.
+
+`addEventListener("click", handler)` registers a function. `handler()` would call it immediately. `onclick` provides one handler slot; `addEventListener` can register several listeners.
+
+```html
+<button id="change" type="button">Change message</button><p id="eventMessage"></p>
+<script>
+  document.getElementById("change").addEventListener("click", function (event) {
+    document.getElementById("eventMessage").textContent = "Button activated";
+    console.log(event.currentTarget.id); // change
+  });
+</script>
+```
+
+`click` reports activation, `input` reports value edits, and `change` reports a committed value change. `submit` reports form submission.
+
+`keydown` and `keyup` respond to key actions; `load` reports resource loading. `DOMContentLoaded` reports that parsing has finished; deferred scripts can usually access elements without a separate readiness listener.
+
+`mousedown` means a button was pressed and `mouseup` that it was released. `mouseover` and `mouseout` report entry and exit; movement across descendants can also trigger them because they bubble.
+
+`event.target` is where an event originated. `event.currentTarget` is the element whose listener is running.
+
+Many events reach ancestors after the target: this is **bubbling**. Event names in `addEventListener` omit the `on` prefix.
+
+> `preventDefault()` prevents a default action, such as form navigation. `stopPropagation()` stops further propagation. They do different jobs.
+
+#### Examination Practice
+
+**1. Define HTML DOM; name three JavaScript methods for manipulating it and explain them with examples.** (5 marks)[^pyq-33]
 
 **Answer.** The HTML DOM represents an HTML document as a tree of objects/nodes. JavaScript can use it to find elements, alter their content and add/remove nodes. Three useful methods are `getElementById()` to select an element, `createElement()` to create an element, and `appendChild()` to attach a node to a parent.
 
@@ -1370,9 +1502,7 @@ This example first selects the paragraph, then changes its text, background and 
 
 Initially the DIV is empty; afterwards it contains a paragraph. `createElement()` alone does not display anything: insertion into the document does. The example connects selection, creation and insertion in one operation.
 
-**Question 2.** Access HTML elements through CSS selectors using JavaScript.
-
-*[2024 paper, image 2][paper-2024-b], Q5(c), 2 marks*
+**2. Access HTML elements through CSS selectors using JavaScript.** (2 marks)[^pyq-34]
 
 **Answer.** `querySelector()` selects the first CSS-selector match; `querySelectorAll()` selects all matches.
 
@@ -1385,9 +1515,7 @@ Initially the DIV is empty; afterwards it contains a paragraph. `createElement()
 </script>
 ```
 
-**Question 3.** Display a paragraph in a DIV with user-supplied width/height; wrap its text according to the DIV width.
-
-*[2021 paper, 2019-23 batch][paper-2021-b], Q2(ii), PDF p. 2, marks not visible*
+**3. Display a paragraph in a DIV with user-supplied width/height; wrap its text according to the DIV width.** (marks not shown)[^pyq-35]
 
 **Answer.** Numeric inputs supply the dimensions, CSS controls wrapping, and the submit handler applies those dimensions and creates the paragraph.
 
@@ -1422,41 +1550,7 @@ Initially the DIV is empty; afterwards it contains a paragraph. `createElement()
 
 Text normally wraps at spaces; `overflow-wrap: anywhere` also permits a long unbroken word to wrap. `overflow: auto` makes excess content accessible when the chosen height is too small. The dimensions need the CSS `px` unit when assigned as these strings.
 
-### II.9 JavaScript and DOM events
-
-An **event** tells a program that something has happened: a button was activated, a value changed or a form was submitted. An **event handler** or **listener** is the function that responds. The program first registers the function, then the browser calls it when the event occurs.
-
-This is the function-reference distinction from II.2 in practice. `addEventListener("click", handler)` registers a function; passing `handler()` would call it immediately and pass its result instead. A property such as `button.onclick = handler` provides one handler slot, while `addEventListener` can register several listeners.
-
-```html
-<button id="change" type="button">Change message</button><p id="eventMessage"></p>
-<script>
-  document.getElementById("change").addEventListener("click", function (event) {
-    document.getElementById("eventMessage").textContent = "Button activated";
-    console.log(event.currentTarget.id); // change
-  });
-</script>
-```
-
-#### Choosing the event
-
-Use `click` for activation, `input` for value edits, `change` for a committed value change, and `submit` for form submission. `keydown` and `keyup` respond to keyboard actions, while `load` reports resource loading. `DOMContentLoaded` reports that the document has been parsed; a deferred script can usually access its elements without a separate readiness listener.
-
-For mouse actions, `mousedown` occurs when a button is pressed and `mouseup` when it is released. `mouseover` and `mouseout` respond to entering and leaving an element; because these events bubble, movement across descendants can also trigger them. Event names supplied to `addEventListener` omit the `on` prefix.
-
-#### Understanding the event object
-
-The event object describes the occurrence. `event.target` is where the event originated, while `event.currentTarget` is the element whose listener is currently running. Many events **bubble**, reaching ancestors after the target's handler runs.
-
-> `preventDefault()` prevents a default action, such as form navigation. `stopPropagation()` stops further event propagation. Preventing one does not automatically stop the other.
-
-These distinctions let a form respond to submission or a page respond to mouse activity without confusing the browser's default behaviour with the program's own handler.
-
-#### Examination practice
-
-**Question 1.** Write functions to handle `mouseup`, `mousedown`, `mouseover` and `mouseout`.
-
-*[2024 paper, image 2][paper-2024-b], Q5(b), 2 marks for the entire item*
+**4. Write functions to handle `mouseup`, `mousedown`, `mouseover` and `mouseout`.** (2 marks)[^pyq-36]
 
 **Answer.**
 
@@ -1479,111 +1573,55 @@ These distinctions let a form respond to submission or a page respond to mouse a
 
 The four small functions and registrations directly answer the task. jQuery-specific event/effect methods in the uncertain 2023 question are not substituted for these plain JavaScript events.
 
-### II.10 DOM navigation, nodes and NodeList
+---
 
-Every item in the DOM tree is a **node**, but not every node is an element. Documents, elements, text and comments are different kinds of nodes. Attributes can also be accessed as attribute nodes, although they are not ordinary children of an element.
+### 11. Forms and Validation
 
-| Node kind | `nodeType` |
-| --- | --- |
-| Element | `1` |
-| Text | `3` |
-| Comment | `8` |
-| Document | `9` |
+A form combines the language and DOM ideas already studied.
 
-A text node's `nodeValue` holds its text. An element's `nodeValue` is `null`; to read the text inside it, use `.textContent`. This distinction prevents a common mistake when navigating from an element to its contents.
+The basic process is:
 
-#### Following relationships in the tree
+> Read the input → Check the rules → Display or submit the accepted result.
 
-A node has a `parentNode` and may have `childNodes`, a `firstChild`/`lastChild`, and `nextSibling`/`previousSibling` nodes. Whitespace in HTML can create text nodes, so `firstChild` is not necessarily the first element the reader notices.
+#### Reading Controls
 
-When only elements are intended, use `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling` and `previousElementSibling` instead:
+Use `document.getElementById("name")` to obtain a control by ID, or `document.forms["f"].elements.namedItem("name")` to obtain it through a named form.
 
-```html
-<ul id="tasks"><li>Read</li><li>Practise</li></ul>
-<script>
-  const list = document.getElementById("tasks");
-  const first = list.firstElementChild;
-  console.log(first.textContent);           // Read
-  console.log(first.nextElementSibling.textContent); // Practise
-  console.log(first.parentElement === list);         // true
-</script>
-```
+`.value` gives current input text. `.checked` tells whether a checkbox or radio button is selected.
 
-#### Creating, inserting and removing nodes
+Trim unwanted outside whitespace before checking text. Keep telephone numbers as strings to preserve leading zeros; convert values to numbers when doing arithmetic.
 
-Creating a node does not display it; the node must be attached to the document tree. `createTextNode()` creates plain text and `appendChild()` inserts a node at the end of a parent's children. `insertBefore(newNode, referenceNode)` inserts before a child, `replaceChild(newNode, oldNode)` replaces one, and `removeChild(child)` removes one.
+#### Validation
 
-```javascript
-// Continue with the UL from the example above.
-const item = document.createElement("li");
-item.appendChild(document.createTextNode("Revise"));
-list.appendChild(item);
-const extra = document.createElement("li");
-extra.textContent = "Check examples";
-list.insertBefore(extra, item);
-const replacement = document.createElement("li");
-replacement.textContent = "Write answers";
-list.replaceChild(replacement, extra);
-list.removeChild(item);
-// Final element texts: Read, Practise, Write answers.
-```
+**Validation** checks whether input satisfies the required rules.
 
-These operations change the relationships in the tree. Appending an already attached node moves it rather than creating a copy.
+An empty name, letters in a numeric mobile field, or a quantity below one should be rejected before use. A regular expression is useful when the rule describes allowed characters.
 
-#### Understanding NodeList membership
+HTML can declare many constraints directly:
 
-A **NodeList** is an indexed collection of nodes, accessed with `[i]` or `item(i)`, measured with `.length` and traversed with a loop. It is not an Array, and its contents depend on how it was obtained: a NodeList can include text or other non-element nodes.
-
-`querySelectorAll()` returns a static NodeList, while `childNodes` returns a live NodeList. The `children` property and the `getElementsBy...` methods discussed earlier return HTMLCollections instead. The following example makes the effect of live and static membership visible:
-
-```javascript
-const snapshot = document.querySelectorAll("#tasks li");
-const liveElements = list.children;
-const before = snapshot.length;
-const added = document.createElement("li");
-added.textContent = "Review";
-list.appendChild(added);
-console.log(snapshot.length === before);     // true: snapshot membership unchanged
-console.log(liveElements.length === before + 1); // true: live collection updated
-```
-
-> A static NodeList fixes which nodes belong to the collection. It does not freeze those nodes or make copies of their contents.
-
-The nodes already in the snapshot still reflect edits, even though later additions do not change its membership.[^collections]
-
-### II.11 Documents, forms and validation
-
-A form brings several earlier ideas together. The DOM gives the program access to controls, strings and numbers represent their values, regular expressions check character patterns, and events determine when the program should respond. The overall sequence is straightforward: read the input, check it, then display or submit the accepted result.
-
-#### Reading and checking the controls
-
-`document.getElementById("name")` obtains a control by ID, while `document.forms["f"].elements.namedItem("name")` accesses one through a named form. An input's `.value` supplies its current text; a checkbox or radio button's `.checked` reports whether it is selected.
-
-**Validation** asks whether those values satisfy the required rules. A name may be empty, a mobile number may contain letters, or a quantity may be below one. Trim unwanted outside whitespace before checking text. Keep telephone numbers as strings to preserve leading zeros, and use numeric conversion when a calculation is intended. A regular expression is suitable when the rule concerns a pattern of characters.
-
-The `submit` handler receives an event. Calling `event.preventDefault()` stops the normal navigation or submission so that the current page can show the result. The examples below demonstrate that front-end behaviour; they do not store a registration on a server.
-
-#### Using HTML constraint validation
-
-HTML can declare many rules directly on its controls:
-
-| Constraint | What it checks |
+| Constraint | Purpose |
 | --- | --- |
 | `required` | A value must be supplied. |
-| `type="email"` | The value must have email syntax. |
-| `min`, `max`, `step` | A number must satisfy range and step restrictions. |
-| `minlength`, `maxlength` | Text length must satisfy the restriction. |
-| `pattern` | Text must match the declared pattern. |
+| `type="email"` | Email syntax. |
+| `min`, `max`, `step` | Numeric range and step. |
+| `minlength`, `maxlength` | Text length. |
+| `pattern` | A text pattern. |
 
-JavaScript can inspect these constraints with `checkValidity()`, which returns a boolean, or use `reportValidity()` to ask the browser to display its validation message as well. A custom error is set with `setCustomValidity("message")` and cleared with `setCustomValidity("")` after correction.[^validation]
+`checkValidity()` returns whether constraints pass. `reportValidity()` also displays the browser's validation message.
 
-Validation should precede use of the data and explain the particular problem. Display accepted plain text through `.textContent`, or through `.value` in a textarea; `innerHTML` would interpret it as markup. These browser checks improve the user's interaction, but a receiving server must still validate data because client-side checks can be bypassed.
+Use `setCustomValidity("message")` for a custom error and `setCustomValidity("")` to clear it after correction.[^validation]
 
-#### Examination practice
+#### Responding to Submission
 
-**Question 1.** Create a registration form for name, mobile and email; name must be nonempty/alphabetic, mobile numeric, email nonempty; show entered data in a textarea.
+A `submit` handler receives an event. `event.preventDefault()` stops the normal submission/navigation so that the page can show its result.
 
-*[2021 paper, 2019-23 batch][paper-2021-b], Q2(i), PDF p. 2, marks not visible*
+For plain output, use `.textContent`, or `.value` in a textarea. `innerHTML` would interpret the data as markup.
+
+These examples demonstrate front-end behaviour. A real receiving server must validate again because browser checks can be bypassed.
+
+#### Examination Practice
+
+**1. Create a registration form for name, mobile and email; name must be nonempty/alphabetic, mobile numeric, email nonempty; show entered data in a textarea.** (marks not shown)[^pyq-37]
 
 **Answer.** This version uses explicit JavaScript checks. The name check enforces letters only as stated; it does not add an unasked mobile length or email-domain rule.
 
@@ -1619,9 +1657,7 @@ Validation should precede use of the data and explain the particular problem. Di
 
 The anchored patterns test the whole name/number, not just one matching character. Output is cleared first so invalid resubmission cannot leave an earlier success visible.
 
-**Question 2.** Design a vaccination-registration form, validate it using JavaScript, display submitted details and provide a confirm button.
-
-*[2021 paper, 2018-22 batch][paper-2021-a], Q2 (screenshot title), PDF p. 1, marks clipped/not verifiable*
+**2. Design a vaccination-registration form, validate it using JavaScript, display submitted details and provide a confirm button.** (marks not verifiable)[^pyq-38]
 
 **Answer.** The paper does not prescribe the fields, so name, age and contact below are illustrative form-design choices. The age check establishes a positive integer; it is not a vaccination-eligibility rule.
 
@@ -1661,9 +1697,7 @@ The anchored patterns test the whole name/number, not just one matching characte
 
 The first action validates and displays; the second confirms the displayed data. Editing the form disables confirmation until the updated values are reviewed again.
 
-**Question 3.** Design the HTML/CSS/JavaScript application page for IIIT Bhubaneswar's cyber-security hackathon: colleges enter groups of three; three winning groups receive prizes; students stay in institute residences and faculty mentors in the Guest House.
-
-*[2024 paper, image 1][paper-2024-a], Q1(b), 5 marks*
+**3. Design the HTML/CSS/JavaScript application page for IIIT Bhubaneswar's cyber-security hackathon: colleges enter groups of three; three winning groups receive prizes; students stay in institute residences and faculty mentors in the Guest House.** (5 marks)[^pyq-39]
 
 **Answer.** The page presents the event conditions, collects an institute, exactly three participants and their mentor, and uses JavaScript to show the application. The paper does not ask for a server/database.
 
@@ -1713,29 +1747,35 @@ institute residences; each college's faculty mentor will stay in the Guest House
 
 The three required participant controls match the team-size rule; the native required/email checks run before a valid submit event, and the handler rejects whitespace-only entries. The page combines the event information, required controls, styling and a JavaScript review action.
 
-**Question 4.** What is constraint validation, and which attributes can achieve it?
-
-*[2024 paper, image 2][paper-2024-b], Q5(e), 2 marks*
+**4. What is constraint validation, and which attributes can achieve it?** (2 marks)[^pyq-40]
 
 **Answer.** Constraint validation checks whether form input satisfies declared restrictions. For example, `<input type="number" min="1" max="10" required>` accepts a required number within the range; `pattern`, `minlength`, `maxlength` and suitable input types provide other restrictions. JavaScript can test them using `checkValidity()` or show messages with `reportValidity()`.
 
-### II.12 Browser Object Model
+---
 
-The document is only one part of the browser environment. The **DOM** represents the page, while the conventional term **Browser Object Model (BOM)** groups facilities involving the window, history, browser information and timers. `window` is the browser window/global object, and `window.document` refers to its document. BOM is a teaching grouping rather than one single interface specification.
+### 12. The Browser Object Model
 
-#### Working with the window and history
+The **Browser Object Model (BOM)** refers to facilities provided by the surrounding browser environment.
 
-| Facility | Use |
+The distinction is:
+
+> DOM concerns the document. BOM concerns the window, history, browser information and timers.
+
+`window` is the browser window/global object, and `window.document` refers to its document. BOM is a conventional teaching grouping rather than one single interface specification.
+
+#### Window and History
+
+| Facility | Purpose |
 | --- | --- |
 | `window.alert("Saved")` | Displays a message. |
 | `prompt("Name?")` | Returns entered text or `null` if cancelled. |
-| `confirm("Continue?")` | Returns a boolean response. |
-| `window.innerWidth`, `window.innerHeight` | Report viewport dimensions in CSS pixels. |
-| `outerWidth`, `outerHeight` | Include the outer browser window. |
-| `history.back()`, `history.forward()`, `history.go(-1)` | Navigate session history when a corresponding entry exists. |
-| `history.length` | Reports the number of history entries. |
+| `confirm("Continue?")` | Returns a boolean. |
+| `window.innerWidth`, `window.innerHeight` | Viewport dimensions in CSS pixels. |
+| `outerWidth`, `outerHeight` | Dimensions including the outer browser window. |
+| `history.back()`, `history.forward()`, `history.go(-1)` | Session-history navigation. |
+| `history.length` | Number of entries. |
 
-Viewport size is different from the document's total scrollable size. The next example displays that size and updates it when the browser window is resized:
+Viewport size is different from the document's total scrollable size:
 
 ```html
 <button type="button" onclick="history.back()">Back</button>
@@ -1750,25 +1790,32 @@ Viewport size is different from the document's total scrollable size. The next e
 </script>
 ```
 
-History supplies navigation, not an unrestricted list of the user's browsing URLs. Similarly, a prompt supplies text, so numeric input must be converted deliberately before arithmetic is performed.
+The example refreshes the dimensions on resize. History navigation requires a corresponding entry; it does not expose an unrestricted list of browsing URLs.
 
-#### Navigator and browser detection
+A prompt returns text, so convert numeric input deliberately.
 
-The `navigator` object supplies environment information through properties such as `navigator.userAgent`, `navigator.language`, `navigator.onLine` and `navigator.cookieEnabled`. The online property is a connectivity indicator; it does not prove that a particular server can be reached.
+#### Navigator and Browser Detection
 
-Browser detection can inspect the user-agent string. For example, `navigator.userAgent.includes("Firefox/")` finds a reported Firefox token, but the string may be reduced, imitated or overlap between browsers. When the real question is whether a capability exists, feature detection such as `typeof document.querySelector === "function"` checks that capability directly.
+`navigator.userAgent`, `navigator.language`, `navigator.onLine` and `navigator.cookieEnabled` report environment information.
 
-The distinction to retain is the responsibility of each object: `document` provides the page, `window` its surrounding environment, `history` navigation and `navigator` browser information. Timing and cookies are developed in the next two topics.
+`onLine` is only a connectivity indicator, not proof that a particular server is reachable.
 
-#### Examination practice
+`navigator.userAgent.includes("Firefox/")` finds a reported Firefox token. User-agent strings may be reduced, imitated or overlap between browsers.
 
-See also: [2019 paper][paper-2019], Q2.B(ii), p. 1, 2 marks, prompt-based factorial is fully answered in II.4. [2024 paper, image 2][paper-2024-b], Q5(a), 2 marks, cookie-enabled detection is fully answered in II.14.
+When checking a capability, feature detection such as `typeof document.querySelector === "function"` directly tests what the program needs.
 
-### II.13 JavaScript timing events
+#### Timing Events
 
-A **timer** asks the browser to run a function later. `setTimeout(function, delay)` schedules a single call, while `setInterval(function, delay)` schedules repeated calls. The delay is measured in milliseconds; it schedules the work rather than pausing the rest of the script.
+A **timer** schedules a function to run later. Delay is measured in milliseconds; it does not pause the rest of the script.
 
-Both functions return timer IDs. Passing the appropriate ID to `clearTimeout(id)` or `clearInterval(id)` cancels pending work. The function supplied to the timer is a callback, so pass the function itself rather than the result of calling it.
+| Function | Purpose |
+| --- | --- |
+| `setTimeout(function, delay)` | Schedule one call. |
+| `setInterval(function, delay)` | Schedule repeated calls. |
+| `clearTimeout(id)` | Cancel the pending one-time timer. |
+| `clearInterval(id)` | Cancel the repeating timer. |
+
+The scheduling functions return IDs used for cancellation. Pass a function, not the result of calling it.
 
 ```html
 <p id="reminder"></p>
@@ -1791,25 +1838,25 @@ Both functions return timer IDs. Passing the appropriate ID to `clearTimeout(id)
 </script>
 ```
 
-The first timer schedules a reminder once, and its button can cancel it before it runs. The interval displays 3, 2 and 1 on successive calls, then clears itself. Clearing a timer does not undo a callback that has already executed.
+The reminder runs once unless cancelled first. The interval displays 3, 2 and 1, then clears itself.
 
-A delay also does not promise an exact execution time: the browser runs the callback when it can. The deeper scheduling mechanism belongs to the planned advanced JavaScript material; the essential distinction here is between one-time work, repeated work and cancellation.
+A delay does not guarantee an exact execution time. Cancelling cannot undo a callback that has already run. Deeper scheduling belongs to the planned advanced material.
 
-#### Additional practice
+#### Cookies
 
-**Original question · Suggested 5 marks.** Distinguish DOM from BOM, distinguish NodeList membership from node contents, and show a cancellable one-time reminder.
+A **cookie** is a small name/value item stored by the browser for a site and included in applicable HTTP requests.
 
-**Answer.** DOM represents/manipulates document nodes; BOM refers to browser-environment facilities such as window/history/timers. `querySelectorAll()` returns a static NodeList: later additions do not change its membership, but its node objects still reflect edits. A reminder can be written as `const id = setTimeout(function () { alert("Revise"); }, 2000);` and cancelled before execution using `clearTimeout(id)`. Here, 2000 is a delay in milliseconds; cancellation does not undo a callback that has already executed.
+It can retain a preference or a session identifier across independent HTTP exchanges. It does not inherently contain the whole session and is not a JavaScript object.
 
-### II.14 Cookies and working with cookies in JavaScript
+Assigning to `document.cookie` sets one accessible cookie. Reading it returns accessible `name=value` pairs separated by semicolons.
 
-HTTP treats separate exchanges independently, yet many sites need to remember a preference or recognise a session. A **cookie** helps provide that continuity. It is a small named value stored by the browser for a site and included in applicable HTTP requests. It may hold a preference or session identifier; it does not inherently contain the whole session and is not a JavaScript object.
+| Attribute | Meaning |
+| --- | --- |
+| `max-age` | Lifetime in seconds. |
+| `expires` | Expiry date in UTC. |
+| `path` | Applicable URL path. |
 
-#### Creating, reading and updating a cookie
-
-For cookies accessible to scripts, assigning to `document.cookie` sets one cookie rather than replacing every existing cookie. Reading the property returns accessible `name=value` pairs separated by semicolons.
-
-A cookie's `max-age` gives its lifetime in seconds; `expires` can instead provide an expiry date in UTC. Without either, it is normally a session cookie. Its `path` controls the applicable URL path. Updating or deleting it requires the same name/path/domain combination, with deletion achieved through an expired lifetime.[^cookies][^cookie-mechanism]
+Without `max-age` or `expires`, the cookie is normally a session cookie. Updating or deleting requires the same name/path/domain combination; deletion uses an expired lifetime.[^cookies][^cookie-mechanism]
 
 ```javascript
 // Create, read and update a preference.
@@ -1830,25 +1877,21 @@ console.log(readCookie("student")); // Mina, if this context permits the cookie.
 document.cookie = "student=; max-age=0; path=/";
 ```
 
-The value is encoded so spaces or separators do not corrupt cookie syntax. The reading function finds the matching name and decodes its value; the final assignment deletes the same name/path cookie. Server-set `HttpOnly` cookies are not exposed through `document.cookie`.
+Encoding keeps spaces and separators from corrupting cookie syntax. The reading function finds the name and decodes its value; the last assignment deletes the matching cookie.
 
-#### Interpreting cookie availability
+Server-set `HttpOnly` cookies are not exposed through `document.cookie`. Browser settings and context can restrict cookies, so use a served page for practical examples rather than assuming identical behaviour for `file:` pages.
 
-Browser settings and page context may restrict cookies, so practical examples should use a served page rather than assuming every `file:` page behaves identically. `navigator.cookieEnabled` reports the browser's cookie-enabled indicator, but does not guarantee that every cookie will be accepted in every context.[^cookie-indicator]
+`navigator.cookieEnabled` reports an indicator, not a guarantee that every context accepts every cookie.[^cookie-indicator]
 
-> A persistent cookie has a specified lifetime. A persistent HTTP connection reuses a connection. The two uses of “persistent” describe different mechanisms.
+> A persistent cookie has a specified lifetime. A persistent HTTP connection reuses a connection. These are separate mechanisms.
 
-#### Examination practice
+#### Examination Practice
 
-**Question 1.** Create and delete cookies in JavaScript, with examples.
-
-*[2019 paper][paper-2019], Q2.A(ii), PDF p. 1, 3 marks*
+**1. Create and delete cookies in JavaScript, with examples.** (3 marks)[^pyq-41]
 
 **Answer.** A cookie stores a small name/value pair for a site. Assign `document.cookie = "user=Anu; max-age=3600; path=/";` to create a one-hour cookie. Read accessible cookies using `document.cookie`. Delete the same cookie using `document.cookie = "user=; max-age=0; path=/";`, or by setting an expiry date in the past with the same path/domain.
 
-**Question 2.** Define cookies and write a function displaying whether they are enabled.
-
-*[2024 paper, image 2][paper-2024-b], Q5(a), 2 marks*
+**2. Define cookies and write a function displaying whether they are enabled.** (2 marks)[^pyq-42]
 
 **Answer.** Cookies are small name/value items stored by the browser for a site and included in applicable HTTP requests, allowing state to be retained.
 
@@ -1865,7 +1908,15 @@ Browser settings and page context may restrict cookies, so practical examples sh
 
 This reports the navigator indicator requested by the exam; it is not a test that every storage context accepts cookies.
 
-> **Planned material.** The advanced JavaScript sections below retain their original coverage and question index; they are not yet completed notes.
+#### Additional Practice
+
+**Original question · Suggested 5 marks.** Distinguish DOM from BOM, distinguish NodeList membership from node contents, and show a cancellable one-time reminder.
+
+**Answer.** DOM represents/manipulates document nodes; BOM refers to browser-environment facilities such as window/history/timers. `querySelectorAll()` returns a static NodeList: later additions do not change its membership, but its node objects still reflect edits. A reminder can be written as `const id = setTimeout(function () { alert("Revise"); }, 2000);` and cancelled before execution using `clearTimeout(id)`. Here, 2000 is a delay in milliseconds; cancellation does not undo a callback that has already executed.
+
+---
+
+> **Planned material.** Advanced JavaScript and Module III retain their syllabus outlines. Teaching and model answers for these topics are still to be written.
 
 ### II.15 Closures, hoisting and IIFEs
 
@@ -2096,7 +2147,7 @@ The following topics retain their syllabus outline and verified question index. 
 
 **Planned coverage.** File System; Debugging Node.js Application.
 
-**Question index.** No direct Node-specific file-system/debugging question found. The 2024 browser JavaScript debugging item belongs to II.6.
+**Question index.** No direct Node-specific file-system/debugging question found. The 2024 browser JavaScript debugging item belongs to [Loops, Regular Expressions and Errors](#9-loops-regular-expressions-and-errors).
 
 *Reference support:* `Sources/nodejs.pdf`, pp. 34-42, covers file operations. Debugging needs further support.
 
@@ -2118,7 +2169,7 @@ The following topics retain their syllabus outline and verified question index. 
 
 ## Appendix A - Examination evidence
 
-**Scope authority:** [IWT-7th-Semester-IT.pdf](../Syllabus/IWT-7th-Semester-IT.pdf), Module I on PDF p. 2, Module II on pp. 2-3, Module III on p. 3. Completed teaching covers Module I and JavaScript fundamentals, DOM and BOM through II.14; advanced JavaScript and Module III retain their planned outlines.
+**Scope authority:** [IWT-7th-Semester-IT.pdf](../Syllabus/IWT-7th-Semester-IT.pdf), Module I on PDF p. 2, Module II on pp. 2-3, Module III on p. 3. Completed teaching covers Module I and JavaScript fundamentals, DOM and BOM in Sections 1-12; advanced JavaScript and Module III retain their planned outlines.
 
 | Study priority | Evidence in the supplied questions | Planning decision |
 | --- | --- | --- |
@@ -2189,11 +2240,11 @@ The register below accounts for every visible question, including excluded mater
 
 | File, locator, verifiable marks | Retain for this outline | Exclude or hold for review |
 | --- | --- | --- |
-| `CS201_Internet_and_Web_Technology_April_2019.pdf`, Q3.A(i), p. 1, 2+1 | GET vs POST (1 mark), I.5. | JSP tags and examples (2 marks). JSP is not prescribed. |
-| Same file, Q3.B, p. 2, 1+4 overall | Explicit HTML registration-form portion, I.13. No HTML-only mark split given. | Servlet lifecycle, servlet code, deployment descriptor and database-table implementation. Node database connectivity does not prescribe this Java stack. |
-| Same file, Q6.A(i), p. 2, 1+1 | JavaScript introductory characteristics (from the comparison) and `script` attributes, I.8/II.1. Script-attributes portion is 1 mark; do not claim a retained-only total for the comparison. | Detailed Java-language study from the Java-vs-JavaScript comparison. |
-| `IWT 2021 Endsem (2019-23 batch).pdf`, Q1(ii), p. 1, marks not visible | CSS purpose, box model, colors, alignment/layout, iframe and inline styles, I.12/I.14/I.17/I.18/I.20. | The diagram's `marquee` instruction. Frames and CSS animation do not explicitly prescribe this old HTML tag. |
-| Same file, Q5(ii), p. 4, marks not visible | Explicit HTML login page (`index.html`), I.13. | Servlet authentication/code and `web.xml` mapping. Do not infer the cut-off final instruction. |
+| `CS201_Internet_and_Web_Technology_April_2019.pdf`, Q3.A(i), p. 1, 2+1 | GET vs POST (1 mark), [HTTP: URLs, Messages and Connections](#2-http-urls-messages-and-connections). | JSP tags and examples (2 marks). JSP is not prescribed. |
+| Same file, Q3.B, p. 2, 1+4 overall | Explicit HTML registration-form portion, [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms). No HTML-only mark split given. | Servlet lifecycle, servlet code, deployment descriptor and database-table implementation. Node database connectivity does not prescribe this Java stack. |
+| Same file, Q6.A(i), p. 2, 1+1 | JavaScript introductory characteristics (from the comparison) and `script` attributes, [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms)/[JavaScript Basics](#6-javascript-basics). Script-attributes portion is 1 mark; do not claim a retained-only total for the comparison. | Detailed Java-language study from the Java-vs-JavaScript comparison. |
+| `IWT 2021 Endsem (2019-23 batch).pdf`, Q1(ii), p. 1, marks not visible | CSS purpose, box model, colors, alignment/layout, iframe and inline styles, [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms)/[CSS: Styling and Page Layout](#4-css-styling-and-page-layout)/[CSS: Styling and Page Layout](#4-css-styling-and-page-layout)/[CSS: Styling and Page Layout](#4-css-styling-and-page-layout)/[CSS: Styling and Page Layout](#4-css-styling-and-page-layout). | The diagram's `marquee` instruction. Frames and CSS animation do not explicitly prescribe this old HTML tag. |
+| Same file, Q5(ii), p. 4, marks not visible | Explicit HTML login page (`index.html`), [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms). | Servlet authentication/code and `web.xml` mapping. Do not infer the cut-off final instruction. |
 | `IWT_Question_Papers_2023.pdf`, Q4(b), p. 1, 2.5+2.5 for any two options | JSON and AJAX short notes, III.6/III.12. | Spring framework and Struts options. Original choice rule does not make them prescribed. |
 | Same file, Group B Q2, p. 3, 10 overall | JSON in AJAX and client-server architecture diagram/explanation, III.6/III.12. No marks assigned to retained clauses separately. | “Types of post backs in AJAX” is U: intended taxonomy/technology is unspecified. Do not add ASP.NET postback material without clarification. |
 | Same file, Group B Q4, p. 3, 10 overall | Built-in jQuery functions for selectors, HTML content, CSS styles and HTML DOM; requested background-color getter, III.10/III.11. | Unbounded coverage of all jQuery built-ins, including effects/plugins and library-specific event APIs not explicitly prescribed. No separate getter marks are printed. |
@@ -2235,22 +2286,111 @@ The register below accounts for every visible question, including excluded mater
 | 2023 PDF composition/date | P. 1 lacks its coherent second page; p. 2 is Android; p. 3 is a different undated IWT sheet. | Keep page-specific attribution. Do not invent the missing 10 marks, merge sheets into one exam, or treat the undated sheet as an independently verified exam year. |
 | 2021 screenshot provenance/marks | Dates come from filenames; travel number is absent; vaccination marks are clipped; second file has no visible marks and a truncated Q5(ii) ending. | Use visible locators and “not visible/not verifiable”; do not invent totals, question numbers or mark allocations. |
 
-## Appendix D - Writing standard and completion record
+## Appendix D - Reading Map and Writing Standard
 
-### Completion record
+### Completed and Planned Material
 
-Module I and the JavaScript fundamentals, DOM, forms and BOM topics through II.14 contain teaching material and model answers. Advanced JavaScript from II.15 onward and Module III remain planned. Four original practice questions supplement gaps in the papers: connections/caching, the box model, classes, and DOM/BOM/timing.
+Sections 1-12 contain the completed foundations, JavaScript, DOM and BOM notes. The advanced JavaScript and Module III outlines remain planned. The original four practice questions are retained alongside the examination questions.
 
-The completed material covers all prescribed Module I subtopics and the introductory JavaScript, HTML DOM and BOM lists, including the cookie continuation on syllabus p. 3. Shared questions have one complete answer and references from related topics. Code examples and hypothetical filenames belong to the written answers; the document does not require extra repository files.
+The following map keeps the earlier syllabus-topic identifiers traceable after related topics have been grouped. It also records the coverage of the completed material without interrupting the teaching.
 
-### Standard for subsequent sections
+| Earlier topic | Coverage | Read in |
+| --- | --- | --- |
+| I.1 | Internet, WWW and their histories | [Web Fundamentals and Architecture](#1-web-fundamentals-and-architecture) |
+| I.2 | Websites, web applications, web projects and development issues | [Web Fundamentals and Architecture](#1-web-fundamentals-and-architecture) |
+| I.3 | Web architecture, web servers and browsers | [Web Fundamentals and Architecture](#1-web-fundamentals-and-architecture) |
+| I.4 | Web protocols, Internet standards, TCP/IP and MIME | [Web Fundamentals and Architecture](#1-web-fundamentals-and-architecture) |
+| I.5 | URL anatomy and HTTP messages | [HTTP: URLs, Messages and Connections](#2-http-urls-messages-and-connections) |
+| I.6 | Connections, web caching and proxies | [HTTP: URLs, Messages and Connections](#2-http-urls-messages-and-connections) |
+| I.7 | Cyber laws | [Web Fundamentals and Architecture](#1-web-fundamentals-and-architecture) |
+| I.8 | HTML foundations and document metadata | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.9 | HTML text, headings and lists | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.10 | Anchors, images and video | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.11 | HTML tables | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.12 | Frames | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.13 | HTML forms and integrated page construction | [HTML: Structure, Content and Forms](#3-html-structure-content-and-forms) |
+| I.14 | Inline, internal and external CSS | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.15 | CSS selectors, combinators, attribute selectors and specificity | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.16 | Pseudo-classes and pseudo-elements | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.17 | Colors and backgrounds | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.18 | Borders, margins, padding and units | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.19 | Fonts, links, icons, lists and table styling | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.20 | Display, positioning and website layout | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.21 | Navigation bars, dropdowns, image galleries and styled forms | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| I.22 | Opacity, text effects, animations, tooltips and counters | [CSS: Styling and Page Layout](#4-css-styling-and-page-layout) |
+| II.1 | JavaScript introduction, statements, comments and bindings | [JavaScript Basics](#6-javascript-basics) |
+| II.2 | Functions, objects and `this` | [Functions, Objects and Classes](#7-functions-objects-and-classes) |
+| II.3 | Strings, numbers, arrays, Date, Math and random values | [Strings, Numbers, Arrays and Dates](#8-strings-numbers-arrays-and-dates) |
+| II.4 | Loops and small programs | [Loops, Regular Expressions and Errors](#9-loops-regular-expressions-and-errors) |
+| II.5 | Regular expressions | [Loops, Regular Expressions and Errors](#9-loops-regular-expressions-and-errors) |
+| II.6 | Errors and debugging | [Loops, Regular Expressions and Errors](#9-loops-regular-expressions-and-errors) |
+| II.7 | JavaScript classes and inheritance | [Functions, Objects and Classes](#7-functions-objects-and-classes) |
+| II.8 | HTML DOM foundations, selection and manipulation | [Working with the HTML DOM](#10-working-with-the-html-dom) |
+| II.9 | JavaScript and DOM events | [Working with the HTML DOM](#10-working-with-the-html-dom) |
+| II.10 | DOM navigation, nodes and NodeList | [Working with the HTML DOM](#10-working-with-the-html-dom) |
+| II.11 | Documents, forms and validation | [Forms and Validation](#11-forms-and-validation) |
+| II.12 | Browser Object Model | [The Browser Object Model](#12-the-browser-object-model) |
+| II.13 | JavaScript timing events | [The Browser Object Model](#12-the-browser-object-model) |
+| II.14 | Cookies and working with cookies in JavaScript | [The Browser Object Model](#12-the-browser-object-model) |
 
-Begin with the idea and its purpose, develop it in connected paragraphs, and use a short example, comparison or diagram where it makes the explanation clearer. Divide substantial topics with meaningful subheadings. Reserve blockquotes for a particularly important distinction rather than adding a summary label after every paragraph.
+### Style for Subsequent Sections
 
-Group examination questions after the corresponding concepts. Keep each model answer complete and proportionate to its marks, preserve the original source and any scope restriction, and clearly separate generated practice from actual questions. Use source notes unobtrusively; retain the detailed audit here.
+Use [the supplied RecSys notes](https://github.com/souiiii/Everything/blob/main/Midsem/RecSys/unit3_chatgpt.md) as the primary style reference: introduce the core idea simply, develop it in short connected paragraphs, then show how an example works. Use a meaningful subheading when the question being explained changes, and reserve tables, steps and blockquotes for places where they clarify the idea.
 
-Continue one numbered topic at a time within the official syllabus. Fill documented reference gaps without importing another course's outline, and mark a topic complete only when all its prescribed coverage and relevant questions have been addressed.
+Keep examination questions together after a logical topic. Preserve the actual prompt, marks, source and syllabus boundary, and provide a complete answer proportionate to the marks. Put detailed references in source notes. The IWT syllabus, supplied sources and papers remain the content authorities.
 
+### Shared Applications
+
+The following links preserve applications previously repeated under individual HTML/CSS topics; their complete answers are grouped in the page-design section.
+
+- Styled headings and travel-story text are part of the integrated task. The complete model in [Complete Page-Design Questions](#5-complete-page-design-questions) includes both; no separate marks for text formatting are printed.[^pyq-05]
+- The diagram includes an iframe with inline styles. The full retained layout answer is in [Complete Page-Design Questions](#5-complete-page-design-questions). Its additional `marquee` requirement remains excluded.[^pyq-11]
+- The CSS box-model layout is answered in [Complete Page-Design Questions](#5-complete-page-design-questions). Margins also appear in the 10-point travel task answered in [Complete Page-Design Questions](#5-complete-page-design-questions).[^pyq-19]
+
+### Examination Question Sources
+
+[^pyq-01]: [2019 paper][paper-2019], Q1.A(i), PDF p. 1, 2 marks
+[^pyq-02]: [2021 paper, 2019-23 batch][paper-2021-b], Q1(i), PDF p. 1, marks not visible
+[^pyq-03]: [2019 paper][paper-2019], Q3.A(i), PDF p. 1, retained GET/POST part: 1 mark; original 2+1 marks · Retained portion
+[^pyq-04]: [2019 paper][paper-2019], Q6.A(i), PDF p. 2, script-attributes part: 1 mark; original 1+1 marks · Retained portion
+[^pyq-05]: [2021 paper, 2018-22 batch][paper-2021-a], unnumbered travel prompt, PDF p. 1, 10 points overall · Shared application.
+[^pyq-06]: [2024 paper, image 1][paper-2024-a], Q2(a), 2 marks
+[^pyq-07]: [2024 paper, image 2][paper-2024-b], Q2(e), 2 marks
+[^pyq-08]: [2021 paper, 2018-22 batch][paper-2021-a], unnumbered travel prompt, PDF p. 1, 10 points
+[^pyq-09]: [2019 paper][paper-2019], Q1.A(ii), PDF p. 1, 3 marks
+[^pyq-10]: [2024 paper, image 2][paper-2024-b], Q2(d), 2 marks
+[^pyq-11]: [2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion · Shared application.
+[^pyq-12]: [2019 paper][paper-2019], Q3.B, PDF p. 2, original 1+4 marks; no HTML-only split · Retained portion
+[^pyq-13]: [2021 paper, 2019-23 batch][paper-2021-b], Q5(ii), PDF p. 4, marks not visible · Retained portion
+[^pyq-14]: [2024 paper, image 2][paper-2024-b], Q3(a), 5 marks
+[^pyq-15]: [2019 paper][paper-2019], Q1.B(i), PDF p. 1, 2 marks
+[^pyq-16]: [2019 paper][paper-2019], Q1.B(ii), PDF p. 1, 3 marks
+[^pyq-17]: [2024 paper, image 2][paper-2024-b], Q2(c), 2 marks
+[^pyq-18]: [2024 paper, image 1][paper-2024-a], Q2(b), 2 marks
+[^pyq-19]: [2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion · Shared application.
+[^pyq-20]: [2024 paper, image 1][paper-2024-a], Q1(a), 5 marks
+[^pyq-21]: [2021 paper, 2019-23 batch][paper-2021-b], Q1(ii), PDF p. 1, marks not visible · Retained portion
+[^pyq-22]: [2024 paper, image 2][paper-2024-b], Q4(c), 2 marks
+[^pyq-23]: [2019 paper][paper-2019], Q6.A(i), PDF p. 2, original 1+1 marks · Retained portion
+[^pyq-24]: [2019 paper][paper-2019], Q2.A(i), PDF p. 1, 2 marks
+[^pyq-25]: [2024 paper, image 2][paper-2024-b], Q4(a), 2 marks
+[^pyq-26]: [2019 paper][paper-2019], Q5.B(ii), PDF p. 2, 1+1 marks
+[^pyq-27]: [2024 paper, image 2][paper-2024-b], Q4(d), 2 marks
+[^pyq-28]: [2024 paper, image 2][paper-2024-b], Q4(e), 2 marks
+[^pyq-29]: [2019 paper][paper-2019], Q2.B(ii), PDF p. 1, 2 marks
+[^pyq-30]: [2019 paper][paper-2019], Q6.A(ii), PDF p. 2, 3 marks
+[^pyq-31]: [2024 paper, image 2][paper-2024-b], Q4(b), 2 marks
+[^pyq-32]: [2024 paper, image 2][paper-2024-b], Q5(d), 2 marks
+[^pyq-33]: [2024 paper, image 2][paper-2024-b], Q3(b), 5 marks
+[^pyq-34]: [2024 paper, image 2][paper-2024-b], Q5(c), 2 marks
+[^pyq-35]: [2021 paper, 2019-23 batch][paper-2021-b], Q2(ii), PDF p. 2, marks not visible
+[^pyq-36]: [2024 paper, image 2][paper-2024-b], Q5(b), 2 marks for the entire item
+[^pyq-37]: [2021 paper, 2019-23 batch][paper-2021-b], Q2(i), PDF p. 2, marks not visible
+[^pyq-38]: [2021 paper, 2018-22 batch][paper-2021-a], Q2 (screenshot title), PDF p. 1, marks clipped/not verifiable
+[^pyq-39]: [2024 paper, image 1][paper-2024-a], Q1(b), 5 marks
+[^pyq-40]: [2024 paper, image 2][paper-2024-b], Q5(e), 2 marks
+[^pyq-41]: [2019 paper][paper-2019], Q2.A(ii), PDF p. 1, 3 marks
+[^pyq-42]: [2024 paper, image 2][paper-2024-b], Q5(a), 2 marks
 
 ### Supplementary source notes
 
